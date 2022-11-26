@@ -1,2 +1,15 @@
 @import './common';
-@import './example';
+
+// components section
+@import './components/btn';
+@import './components/container';
+
+// layout section
+@import './layout/header-main';
+@import './layout/header-library';
+@import './layout/header-nav';
+@import './layout/movies-list';
+@import './layout/movies-modal';
+@import './layout/pagination';
+@import './layout/footer';
+@import './layout/footer-modal';

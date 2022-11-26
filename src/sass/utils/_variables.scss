@@ -1,0 +1,29 @@
+// Main Colors
+$color-accent: #ff6b08;
+$color-accent-dark: mix(black, $color-accent, 15%); // Dark accent color
+
+// Texts
+$color-text: #000000;
+$color-text-middle: #545454;
+$color-text-light: #8c8c8c;
+$color-text-lighter: #ffffff;
+
+// Backgrounds
+$bg-body: #e5e5e5;
+
+$bg-button: $color-accent;
+$bg-button-active: $color-accent-dark;
+$bg-button-secondary: transparent;
+$bg-button-secondary-active: #ffffff;
+
+// Typography
+$font-stack: 'Roboto', sans-serif; // User Font Family
+$font-size: 12px; // Body Font Size
+$line-height: 1.6; // Document Line Height
+
+// Transitions
+$transition-duration: 250ms;
+$transition-animation: cubic-bezier(0.4, 0, 0.2, 1);
+
+// Gutters
+$gap: 16px;
