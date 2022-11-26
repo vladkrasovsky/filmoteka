@@ -4,6 +4,7 @@
   padding-right: $px;
   margin-left: auto;
   margin-right: auto;
+  width: 320px;
 
   @include mq(tablet) {
     $px-tablet: calc($gap * 2);
