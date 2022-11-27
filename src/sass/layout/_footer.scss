@@ -1,52 +1,52 @@
 .footer {
-    background-color: #f7f7f7;
-    margin-top: auto;
-    padding-top: 30px;
-    padding-bottom: 30px;
-  
-    &__container {
-      text-align: center;
-      @media screen and (min-width: 320px) {
-        width: 270px;
-      }
-      @media screen and (min-width: 768px) {
-        width: 800px;
-      }
+  background-color: $bg-footer;
+  margin-top: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  &__container {
+    text-align: center;
+    @media screen and (min-width: 320px) {
+      width: 270px;
     }
-    &__text {
-      display: inline;
-      color: #545454;
-      font-size: 14px;
-      line-height: 1.1;
-      @media screen and (min-width: 768px) {
-        font-size: 16px;
-      }
-      @media screen and (min-width: 1024px) {
-        font-size: 19px;
-      }
-    }
-    &__icon-heart {
-      fill: #ff6b08;
-      width: 14px;
-      height: 10px;
-      @media screen and (min-width: 320px) {
-        margin-top: 10px;
-      }
-  
-      @media screen and (min-width: 768px) {
-        height: 12px;
-        margin-left: 5px;
-        margin-right: 5px;
-      }
-    }
-    &__text-authors {
-      text-decoration: underline;
-      color: inherit;
-      cursor: pointer;
-      transition: color cubic-bezier(0.4, 0, 0.2, 1), 250ms;
-      &:hover,
-      &:focus {
-        color: #ff6b08;
-      }
+    @media screen and (min-width: 768px) {
+      width: 800px;
     }
   }
+  &__text {
+    display: inline;
+    color: $color-text-middle;
+    font-size: 14px;
+    line-height: 1.1;
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+    }
+    @media screen and (min-width: 1024px) {
+      font-size: 19px;
+    }
+  }
+  &__icon-heart {
+    fill: $color-accent;
+    width: 14px;
+    height: 10px;
+    @media screen and (min-width: 320px) {
+      margin-top: 10px;
+    }
+
+    @media screen and (min-width: 768px) {
+      height: 12px;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+  &__text-authors {
+    text-decoration: underline;
+    color: inherit;
+    cursor: pointer;
+    transition: color cubic-bezier(0.4, 0, 0.2, 1), 250ms;
+    &:hover,
+    &:focus {
+      color: $color-accent;
+    }
+  }
+}
