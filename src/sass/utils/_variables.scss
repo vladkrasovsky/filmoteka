@@ -1,12 +1,14 @@
 // Main Colors
 $color-accent: #ff6b08;
 $color-accent-dark: mix(black, $color-accent, 15%); // Dark accent color
+$color-secondary: #ff001b;
 
 // Texts
 $color-text: #000000;
 $color-text-middle: #545454;
 $color-text-light: #8c8c8c;
 $color-text-lighter: #ffffff;
+$color-text-warning: $color-secondary;
 
 // Backgrounds
 $bg-body: #ffffff;
