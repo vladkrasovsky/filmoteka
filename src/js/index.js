@@ -1,4 +1,5 @@
-import { onLoadPage } from './trendingMovies';
+import {onLoadPage} from './trendingMovies';
+import './localStorage'
 
 onLoadPage();
 
