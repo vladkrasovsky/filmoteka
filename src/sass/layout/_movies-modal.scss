@@ -1,0 +1,250 @@
+.movie__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #00000025;
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+  transform: scale(1);
+
+  transition: all $transition-animation $transition-duration;
+  transition: opacity $transition-animation $transition-duration,
+  visibility $transition-animation $transition-duration;
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.movie-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 88%;
+  max-height: 95vh;
+  padding: 48px 20px 40px;
+
+  font-weight: 500;
+
+  background-color: $color-text-lighter;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  overflow-y:scroll;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+
+    width: 704px;
+    max-height: 100vh;
+    padding: 40px 72px 40px 36px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 806px;
+    padding: 40px 12px;
+  }
+
+  &__btn-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: transparent;
+    cursor: pointer;
+
+    color: $color-text;
+    background-color: $color-text-lighter;
+    transition: color $transition-animation $transition-duration;
+
+    &:hover,
+    &:focus {
+      color: $color-text-lighter;
+      background-color: $color-accent;
+    }
+  }
+
+  &__icon-close {
+    fill: currentColor;
+    display: block;
+  }
+}
+
+.movie-modal__thumb {
+  width: 100%;
+  height: min-content;
+
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 264px;
+
+    margin-right: 68px;
+    margin-bottom: 0px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 375px;
+
+    margin-right: 16px;
+  }
+}
+
+.movie-modal__img {
+  width: inherit;
+  max-width: none;
+  display: block;
+  border-radius: 5px;
+
+  @media screen and (min-width: 1280px) {
+    max-height: 478px;
+    width: 340px;
+  }
+}
+
+.movie-modal__info {
+  width: 100%;
+}
+
+.movie-modal__title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: calc(23.44 / 20);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 1280px) {
+    font-size: 30px;
+    line-height: calc(35 / 30);
+  }
+}
+
+.movie-modal__discription {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+
+  &--accent {
+    width: 36px;
+
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+    padding: 1px 0;
+
+    color: $color-text-lighter;
+    background-color: $color-accent;
+  }
+}
+
+.left {
+  width: 30%;
+
+  line-height: calc(16/12);
+
+  color: #8C8C8C;
+  ;
+}
+
+.right {
+  width: 65%;
+
+  line-height: calc(14/12);
+}
+
+.movie-modal-discription__original-title--value .right {
+  line-height: calc(16/12);
+  text-transform: uppercase;
+}
+
+.movie-modal-about__title {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.movie-modal-about__text {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(20 / 12);
+  margin-bottom: 16px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+}
+
+.movie-modal__btn-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-evenly;
+
+
+  @media screen and (min-width: 768px) {
+    gap: 15px;
+    justify-content: flex-start;
+  }
+}
+
+.movie-modal__btn {
+  width: 110px;
+  min-height: 44px;
+
+  text-transform: uppercase;
+  text-align: center;
+  flex-wrap: wrap;
+
+  font-weight: 500;
+  line-height: calc(16/12);
+
+  border: 1px solid $color-text;
+  border-radius: 5px;
+
+  cursor: pointer;
+  transition: all $transition-animation $transition-duration;
+
+  &:hover,
+  &:focus {
+    background-color: $color-accent;
+    border-color: $color-accent;
+    color: $color-text-lighter;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 125px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 136px;
+  }
+
+}
