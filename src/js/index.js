@@ -1,7 +1,8 @@
 import {onLoadPage} from './trendingMovies';
-import './localStorage'
+import {getLocalStorageData} from "./localStorage";
 
 onLoadPage();
+getLocalStorageData()
 
 
 console.log('index.js');

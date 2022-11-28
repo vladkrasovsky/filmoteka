@@ -13,31 +13,29 @@ let watchedList = [];
 const QUEUE_KEY = 'queue-list';
 let queueList = [];
 
-onPageLoad();
-
 refs.watchedRef.addEventListener('click', saveToWatched);
 refs.queueRef.addEventListener('click', saveToQueue);
 
 function saveToWatched() {
-  if (watchedList.find(el => el.id === filmsList.results[1].id)) {
+  if (watchedList.find(el => el.id === filmsList.results[5].id)) {
     Notiflix.Notify.warning('This film is already in you library!');
     return;
   }
-  watchedList.push(filmsList.results[1])
+  watchedList.push(filmsList.results[5])
   LsService.save(WATCHED_KEY, watchedList)
 }
 
 function saveToQueue() {
   console.log(refs.queueRef)
-  if (queueList.find(el => el.id === filmsList.results[1].id)) {
+  if (queueList.find(el => el.id === filmsList.results[14].id)) {
     Notiflix.Notify.warning('This film is already in you library!');
     return;
   }
-  queueList.push(filmsList.results[1])
+  queueList.push(filmsList.results[14])
   LsService.save(QUEUE_KEY, queueList)
 }
 
-function onPageLoad() {
+export function getLocalStorageData() {
   if (LsService.load(WATCHED_KEY)) {
     watchedList.push(...LsService.load(WATCHED_KEY))
   }
