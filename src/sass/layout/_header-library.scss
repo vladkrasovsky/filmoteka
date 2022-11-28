@@ -1,0 +1,35 @@
+.header-library {
+    
+    
+    background-position: 50% 70%;
+    background-image: url(../images/header_library/library_mob@1x.webp);
+
+    @include mq(retina) {
+
+        background-image: url(../images/header_library/library_mob@2x.webp);
+    }
+        @include mq(tablet) {
+            // min-width: 768px;
+            // min-height: 216px;
+            background-size: cover;
+            background-image: url(../images/header_library/library_tabl@1x.webp);
+    
+            @include mq(retina) {
+                background-image: url(../images/header_library/library_tabl@2x.webp);
+            }
+            @include mq(desktop) {
+            //  min-width: 1280px;
+            //  min-height: 216px;
+                background-size: cover;
+                background-image: url(../images/header_library/library_desk@1x.webp);
+            
+                @include mq(retina) {
+                    background-image: url(../images/header_library/library_desk@2x.webp);
+                }
+            }
+        }
+
+}
+
+
+

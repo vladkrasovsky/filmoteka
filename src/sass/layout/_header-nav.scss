@@ -1,71 +1,53 @@
-
 .list {
-    @extend %list;
+  @extend %list;
 }
 
-// .link {
-
-//     cursor: pointer;
-// }
-
-// .header-nav {
-//     display: flex;
-// }
-
-
-
-.header-nav__list {
+.header-nav {
+  &__list {
     display: flex;
-}
-
-.header-nav__item:first-child {
-margin-right: 40px;
-}
-
-
-.header-nav__link {
-    position: relative;
-    display: flex;
-    padding-top: 10px ;
-    padding-bottom: 10px;
-    @include font($fs: 12px, $lh: 1.17, $fw: 500, $ls: null);
-    font-style: normal;
-    color: $color-text-lighter;
-    text-transform: uppercase;
-}
-
-
- .header-nav__link--current::after {
-     content: '';
-     display: block;
-     position: absolute;
-     bottom: 7px;
-     width: 100%;
-     height: 3px;
-     //  border-radius: 2px;
-     background-color: $color-secondary;
-
-      animation: changeSize 400ms linear 200ms backwards;
- }
-
-  @keyframes changeSize {
-      0% {
-          transform: scaleX(0);
-      }
-
-      100% {
-          transform: scaleX(1);
-      }
   }
 
+  &__item:first-child {
+    margin-right: 40px;
+  }
+}
 
+.header-nav__link {
+  position: relative;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  @include font($fs: 12px, $lh: 1.17, $fw: 500, $ls: null);
+  font-style: normal;
+  color: $color-text-lighter;
+  text-transform: uppercase;
 
+  transition: color $transition-duration $transition-animation;
 
+  &:hover,
+  &:focus {
+    color: $hover-color;
+  }
 
+  &--current::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 7px;
+    width: 100%;
+    height: 3px;
+    background-color: $color-secondary;
 
-// @mixin font($fs: $font-size, $lh: $line-height, $fw: normal, $ls: null) {
-//     font-size: $fs;
-//     font-weight: $fw;
-//     line-height: $lh;
-//     letter-spacing: $ls;
-// }
+    animation: changeSize 400ms linear 200ms backwards;
+  }
+}
+
+@keyframes changeSize {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
