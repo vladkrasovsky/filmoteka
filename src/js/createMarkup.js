@@ -1,3 +1,5 @@
+import { parseGenres } from './parseGenres';
+
 export function createMarkup(movies) {
 
   return movies.reduce((acc, movie) => {
@@ -11,7 +13,7 @@ export function createMarkup(movies) {
 
     return (
       acc +
-      `<li class='movies__item'>
+      `<li class='movies__item' data-id='${id}'>
         <a class='movies__link' href=''>
           <div class="thumb">
             <img class='movies__image'
@@ -19,7 +21,7 @@ export function createMarkup(movies) {
                  alt='${original_title}'>
           </div>
           <p class='movies__title'>${original_title}</p>
-          <p class='movies__genres genres'><span class='genres__text'>${genre_ids}</span> ${release_date}</p>
+          <p class='movies__genres genres'><span class='genres__text'>${parseGenres(genre_ids)}</span> ${release_date.slice(0, 4)}</p>
         </a>
       </li>`
     );
