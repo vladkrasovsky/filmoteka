@@ -1,5 +1,43 @@
+<<<<<<< Updated upstream
 <p>Header Main</p>
 
 <include src="./partials/header-nav.html">
   { "home": "is-active", "library": "" }
 </include>
+=======
+<header class="header">
+  <div class="header__container container container--no-paddings">
+    <div class="header__box-nav">
+      <a href="./index.html" class="header__logo-link">
+        <svg class="header__icon-logo">
+          <use href="./images/icons.svg#icon-film-logo"></use></svg
+        ><span class="header__logo-txt">Filmoteka</span></a
+      >
+
+      <include src="./partials/header-nav.html">
+        <!-- { "home": "is-active", "library": "" } -->
+      </include>
+    </div>
+
+    <form class="movie-search">
+      <label class="movie-search__label">
+        <input
+          class="movie-search__input"
+          type="text"
+          name="search"
+          placeholder="Movie search"
+          required
+        />
+      </label>
+      <button class="movie-search__submit" type="submit">
+        <svg class="movie-search__icon-logo">
+          <use href="./images/icons.svg#icon-search"></use>
+        </svg>
+      </button>
+    </form>
+    <p class="header__no-search visually-hidden">
+      Search result not successful. Enter the correct movie name and
+    </p>
+  </div>
+</header>
+>>>>>>> Stashed changes
