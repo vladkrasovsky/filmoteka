@@ -13,17 +13,9 @@ export class Themoviedb {
     },
   };
 
-
-  // Приклад
-
   async getTrendings() {
     const urlAXIOS = `trending/movie/day?page=${this.page}`;
     const { data } = await axios.get(urlAXIOS, this.#params);
     return data;
   }
-
-  incrementPage() {
-    this.page += 1;
-  }
-  
 }
