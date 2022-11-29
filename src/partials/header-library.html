@@ -1,9 +1,3 @@
-<!-- <p>Header Library</p>
-
-<include src="./partials/header-nav.html">
-  { "home": "", "library": "is-active" }
-</include> -->
-
 <header class="header header-library">
   <div class="header__container container container--no-paddings">
     <div class="header__box-nav">
@@ -12,9 +6,8 @@
           <use href="./images/icons.svg#icon-film-logo"></use></svg
         ><span class="header__logo-txt">Filmoteka</span>
       </a>
-
       <include src="./partials/header-nav.html">
-        <!-- { "home": "is-active", "library": "" } -->
+        { "home": "", "library": "is-active" }
       </include>
     </div>
     <div class="btn-box">
@@ -31,9 +24,5 @@
         queue
       </button>
     </div>
-
-    <!-- <p class="header__no-search visually-hidden">
-      Search result not successful. Enter the correct movie name and
-    </p> -->
   </div>
 </header>

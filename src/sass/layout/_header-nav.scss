@@ -29,7 +29,7 @@
     color: $hover-color;
   }
 
-  &--current::after {
+  &.is-active::after {
     content: '';
     display: block;
     position: absolute;
