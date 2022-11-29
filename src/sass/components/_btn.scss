@@ -1,0 +1,59 @@
+
+.btn-box {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+
+    @include mq(tablet) {
+        justify-content: center;
+        gap:32px;
+        }
+
+    @include mq(desktop) {
+        justify-content: center;
+        gap: 16px;
+    }
+}
+.header-btn {
+        min-width: 130px;
+        padding-top: 14px;
+        padding-bottom: 12px;
+
+    @include font($fs: 12px, $lh: 1.33, $fw: 500, $ls: null);
+    font-style: normal;
+    text-transform: uppercase;
+    color: $color-text-lighter;
+    border-radius: 5px;
+    border: 1px solid #FFFFFF;
+    
+    background-color: transparent;
+    transition: color $transition-duration $transition-animation;
+
+    &:hover,
+    &:focus {
+        color: $hover-color;
+        border-color: $hover-color;
+    }
+        
+    @include mq(tablet) {
+        min-width: 150px;
+    }
+}
+
+.header-btn-active {
+    padding-top: 15px;
+        padding-bottom: 13px;
+    background-color: $bg-btn-active;
+    border: none;
+    filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+    cursor: default;
+
+    &:hover,
+    &:focus {
+        color: $color-text-lighter;
+        border-color: inherit;
+    }
+}
+
+
+

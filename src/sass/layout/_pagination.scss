@@ -1,16 +1,18 @@
 .icon-arrow {
   color: black;
+  width: 16px;
+  height: 16px;
 }
 .left {
-  margin-right: 19px;
+  // margin-right: 20px;
   @media screen and (min-width: 768px) {
-    margin-right: 16px;
+    // margin-right: 16px;
   }
 }
 .rigth {
-  margin-left: 20px;
+  // margin-left: 20px;
   @media screen and (min-width: 768px) {
-    margin-right: 10px;
+    // margin-right: 10px;
   }
 }
 .icon-arrow:hover {
@@ -22,13 +24,12 @@
 .pagination:hover {
   color: #ff6b08;
 }
-.container-pagination {
+.tui-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-// .link {
-//   display: block;
-//   margin-left: auto;
-//   margin-right: auto;
-// }
+.button {
+  border: none;
+  background-color: transparent;
+}
