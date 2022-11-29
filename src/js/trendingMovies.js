@@ -1,28 +1,27 @@
 import { Themoviedb } from './API/Themoviedb';
 import { createMarkup } from './createMarkup';
+import { initPagination } from './pagination';
 
-const trendingMovies = new Themoviedb();
+export const trendingMovies = new Themoviedb();
 
 const moviesListRef = document.querySelector('.moviesListRef');
 
-
 export async function onLoadPage() {
-    try {
-        const {
-            results: movie,
-            total_pages: totalPages,
-        } = await trendingMovies.getTrendings();
+  try {
+    const data = await trendingMovies.getTrendings();
+    const { results: movie, total_pages: totalPages } = data;
 
-        // console.log(movie)
+    initPagination(data, onLoadPage);
 
-        trendingMovies.totalPages = totalPages;
+    // console.log(movie)
 
-        const markup = createMarkup(movie);
-        moviesListRef.insertAdjacentHTML('beforeend', markup);
+    trendingMovies.totalPages = totalPages;
 
-        trendingMovies.incrementPage();
+    const markup = createMarkup(movie);
+    moviesListRef.innerHTML = markup;
 
-    } catch (error) {
-    console.log(error)
+    // trendingMovies.incrementPage();
+  } catch (error) {
+    console.log(error);
   }
 }

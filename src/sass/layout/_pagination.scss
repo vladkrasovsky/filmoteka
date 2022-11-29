@@ -1,35 +1,25 @@
-.icon-arrow {
-  color: black;
-  width: 16px;
-  height: 16px;
-}
-.left {
-  // margin-right: 20px;
-  @media screen and (min-width: 768px) {
-    // margin-right: 16px;
-  }
-}
-.rigth {
-  // margin-left: 20px;
-  @media screen and (min-width: 768px) {
-    // margin-right: 10px;
-  }
-}
-.icon-arrow:hover {
-  color: #ff6b08;
-}
-.pagination {
-  color: black;
-}
-.pagination:hover {
-  color: #ff6b08;
-}
 .tui-pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0 0 60px !important;
 }
-.button {
-  border: none;
-  background-color: transparent;
+
+.tui-pagination .tui-page-btn {
+  border: none !important;
+  border-radius: 5px;
+}
+
+.tui-pagination .tui-page-btn {
+  width: 40px !important;
+  height: 40px !important;
+  padding: 14px 0 !important;
+  line-height: 1 !important;
+}
+
+.tui-pagination .tui-ico-ellip {
+  margin-top: 5px !important;
+}
+
+.tui-pagination .tui-is-selected,
+.tui-pagination strong {
+  background-color: $color-accent !important;
+  border-color: $color-accent !important;
 }
