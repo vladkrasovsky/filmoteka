@@ -1,10 +1,9 @@
-import {onLoadPage} from './trendingMovies';
-import {getLocalStorageData} from "./localStorage";
+import { onLoadPage } from './trendingMovies';
+import { getLocalStorageData } from './localStorage';
+import { pagination } from './pagination';
 
 onLoadPage();
-getLocalStorageData()
-
+getLocalStorageData();
+// pagination();
 
 console.log('index.js');
-
-
