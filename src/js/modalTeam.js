@@ -11,6 +11,8 @@ import devMariiaObj from '../images/team_photos/webp/Mariia_Prokopenko.webp';
 import devOleksiiObj from '../images/team_photos/webp/Oleksii_Zablotskyi.webp';
 import devSerhiiDenObj from '../images/team_photos/webp/Serhii_Denysiuk.webp';
 import devSerhiiPadalkaObj from '../images/team_photos/webp/Serhii_Padalka.webp';
+import devOleksiiVitObj from '../images/team_photos/webp/Oleksii_Vitomskyi.webp';
+
 
 const team = [
   {
@@ -66,6 +68,11 @@ const team = [
   {
     photo: `${devSerhiiPadalkaObj}`,
     name: 'Serhii Padalka',
+    role: 'Developer',
+  },
+  {
+    photo: `${devOleksiiVitObj}`,
+    name: 'Oleksii Vitomskyi',
     role: 'Developer',
   },
 ];
