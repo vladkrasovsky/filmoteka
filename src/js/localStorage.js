@@ -17,22 +17,33 @@ refs.watchedRef.addEventListener('click', saveToWatched);
 refs.queueRef.addEventListener('click', saveToQueue);
 
 function saveToWatched() {
-  if (watchedList.find(el => el.id === filmsList.results[5].id)) {
-    Notiflix.Notify.warning('This film is already in you library!');
+  if (watchedList.find(el => el.id === filmsList.results[3].id)) {
+    const idx = watchedList.findIndex(el => el.id === filmsList.results[3].id)
+    watchedList.splice(idx, 1);
+    LsService.save(WATCHED_KEY, watchedList)
+    Notiflix.Notify.warning('This film was removed from your library!');
+    refs.watchedRef.textContent = 'Add to Watched';
     return;
   }
-  watchedList.push(filmsList.results[5])
+  watchedList.push(filmsList.results[3])
   LsService.save(WATCHED_KEY, watchedList)
+  Notiflix.Notify.success('This film was added to you library!');
+  refs.watchedRef.textContent = 'Remove from Watched';
 }
 
 function saveToQueue() {
-  console.log(refs.queueRef)
   if (queueList.find(el => el.id === filmsList.results[14].id)) {
-    Notiflix.Notify.warning('This film is already in you library!');
+    const idx = queueList.findIndex(el => el.id === filmsList.results[3].id);
+    queueList.splice(idx, 1);
+    LsService.save(QUEUE_KEY, queueList);
+    Notiflix.Notify.warning('This film was removed from your library!');
+    refs.queueRef.textContent = 'Add to Queue';
     return;
   }
   queueList.push(filmsList.results[14])
   LsService.save(QUEUE_KEY, queueList)
+  Notiflix.Notify.success('This film was added to you library!');
+  refs.queueRef.textContent = 'Remove from Queue';
 }
 
 export function getLocalStorageData() {
