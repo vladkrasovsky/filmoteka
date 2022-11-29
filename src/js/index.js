@@ -1,7 +1,6 @@
 import { onLoadPage } from './trendingMovies';
 import { getLocalStorageData } from './localStorage';
 import { searchByWord } from './search_keyWord';
-import { pagination } from './pagination';
 import * as modalMovie from './modalMovie';
 
 onLoadPage();
