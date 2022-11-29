@@ -3,17 +3,15 @@ import { parseGenres } from './parseGenres';
 import Notiflix from 'notiflix';
 
 
-const refs = {
-    searchForm: document.querySelector('.movie-search'),
-    gallery: document.querySelector('.movies__list')
-};
+const galleryRef = document.querySelector('.movies__list');
+const pRef = document.querySelector('.header__no-search');
 
-refs.searchForm.addEventListener('submit', searchByWord);
 
 const newApiRequest = new ThemovieSearch();
 
-async function searchByWord(evt) { 
+export async function searchByWord(evt) { 
     evt.preventDefault();
+    pRef.classList.add("visually-hidden");
 
     newApiRequest.query = evt.currentTarget.search.value.trim();
 
@@ -22,7 +20,7 @@ async function searchByWord(evt) {
         return
     }
 
-    refs.gallery.innerHTML = '';
+    galleryRef.innerHTML = '';
     newApiRequest.resetPage();
 
     try {
@@ -38,7 +36,7 @@ function renderGallery(responseData) {
     const movieData = responseData.results;
 
     if (movieData.length === 0) {
-        Notiflix.Report.failure('Search notification', 'Sorry, there are no movies matching your search query.', 'Try one more time');
+        pRef.classList.remove("visually-hidden");
         return
     }
 
@@ -46,16 +44,9 @@ function renderGallery(responseData) {
 }
 
 function galleryMarkup(movieData) {
-    const markup = movieData.map((movie) => {
-        const {
-            poster_path,
-            original_title,
-            genre_ids,
-            release_date,
-            id,
-        } = movie;
+    const markup = movieData.map(({poster_path, original_title, genre_ids, release_date, id}) => {
 
-        const releaseYear = release_date.substr(0, 4);
+        const releaseYear = release_date.slice(0, 4);
         
         return `
         <li class='movies__item' data-id='${id}'>
@@ -72,7 +63,5 @@ function galleryMarkup(movieData) {
         `;
     })
     .join('');
-    refs.gallery.innerHTML = markup;
+    galleryRef.innerHTML = markup;
 }
-
-export { newApiRequest };
