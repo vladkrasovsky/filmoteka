@@ -18,7 +18,6 @@ export class ThemovieSearch {
   async getByQuery() { 
     const urlAXIOS = `search/movie?query=${this.searchQuery}&page=${this.page}&include_adult=false`;
     const { data } = await axios.get(urlAXIOS, this.#params);
-    this.page += 1;
     return data;
   }
     
