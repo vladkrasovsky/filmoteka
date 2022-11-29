@@ -33,10 +33,18 @@
   max-width: 460px;
   margin-bottom: 20px;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   @include mq(mobile-only) {
     margin-right: auto;
     margin-left: auto;
   }
+}
+
+.movies__link {
+  pointer-events: none;
 }
 
 .thumb {
