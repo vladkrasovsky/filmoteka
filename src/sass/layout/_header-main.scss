@@ -54,10 +54,6 @@
     align-items: center;
   }
 
-  @include mq(tablet) {
-    margin-bottom: 40px;
-  }
-
   &__logo-link {
     display: inline-block;
     padding-top: 8px;
