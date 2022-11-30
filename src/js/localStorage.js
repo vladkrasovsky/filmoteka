@@ -2,6 +2,7 @@ import LsService from './API/storage';
 import filmsList from '../data/movies/trendings.json';
 import Notiflix from "notiflix";
 
+
 const refs = {
   watchedRef: document.querySelector('.btn-watched'),
   queueRef: document.querySelector('.btn-queue'),
@@ -17,6 +18,7 @@ refs.watchedRef.addEventListener('click', saveToWatched);
 refs.queueRef.addEventListener('click', saveToQueue);
 
 function saveToWatched() {
+
   if (watchedList.find(el => el.id === filmsList.results[3].id)) {
     const idx = watchedList.findIndex(el => el.id === filmsList.results[3].id)
     watchedList.splice(idx, 1);
