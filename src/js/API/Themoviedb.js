@@ -6,6 +6,7 @@ export class Themoviedb {
   page = 1;
   totalPages = 0;
   perPage = 20;
+  movieId = 0;
   #params = {
     params: {
       api_key: '68fa3d310c9d2cffbb85ba21d660e67a',
@@ -15,6 +16,12 @@ export class Themoviedb {
 
   async getTrendings() {
     const urlAXIOS = `trending/movie/day?page=${this.page}`;
+    const { data } = await axios.get(urlAXIOS, this.#params);
+    return data;
+  }
+
+  async getMovieDetails() {
+    const urlAXIOS =`movie/${this.movieId};`
     const { data } = await axios.get(urlAXIOS, this.#params);
     return data;
   }
