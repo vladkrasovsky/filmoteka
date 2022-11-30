@@ -19,6 +19,7 @@ export function handleSearchSubmit(evt) {
     return;
   }
 
+  searchMovies.resetPage();
   searchByWord();
 }
 
