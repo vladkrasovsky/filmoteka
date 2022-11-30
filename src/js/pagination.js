@@ -1,5 +1,5 @@
 import { trendingMovies } from './trendingMovies';
-import { searchByWord } from './search_keyWord';
+import { searchMovies } from './search_keyWord';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.min.css';
 
@@ -21,12 +21,11 @@ export function initPagination(data, callback) {
   pagination.on('afterMove', event => {
     const currentPage = event.page;
     trendingMovies.page = currentPage;
-    searchByWord.page = currentPage;
+    searchMovies.page = currentPage;
     callback();
   });
 }
 
 export function destroyPagination() {
-  console.log('destroy');
   document.getElementById(paginationContainerID).innerHTML = '';
 }
