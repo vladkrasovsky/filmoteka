@@ -3,6 +3,7 @@ import {createMarkup} from './createMarkup';
 import {getLocalStorageData} from './localStorage';
 import trendings from '../data/movies/trendings.json';
 
+
 getLocalStorageData();
 
 const refs = {
