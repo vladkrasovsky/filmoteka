@@ -51,7 +51,7 @@ function renderGallery(responseData) {
 function galleryMarkup(movieData) {
   const markup = movieData
     .map(({ poster_path, original_title, genre_ids, release_date, id }) => {
-      const releaseYear = release_date.slice(0, 4);
+      const releaseYear = release_date === '' ? 'Unknown' : release_date.slice(0, 4);
 
       return `
         <li class='movies__item' data-id='${id}'>

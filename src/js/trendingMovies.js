@@ -13,14 +13,11 @@ export async function onLoadPage() {
 
     initPagination(data, onLoadPage);
 
-    // console.log(movie)
-
     trendingMovies.totalPages = totalPages;
 
     const markup = createMarkup(movie);
     moviesListRef.innerHTML = markup;
 
-    // trendingMovies.incrementPage();
   } catch (error) {
     console.log(error);
   }
