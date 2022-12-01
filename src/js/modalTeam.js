@@ -12,78 +12,117 @@ import devOleksiiObj from '../images/team_photos/webp/Oleksii_Zablotskyi.webp';
 import devSerhiiDenObj from '../images/team_photos/webp/Serhii_Denysiuk.webp';
 import devSerhiiPadalkaObj from '../images/team_photos/webp/Serhii_Padalka.webp';
 import devOleksiiVitObj from '../images/team_photos/webp/Oleksii_Vitomskyi.webp';
+import github_iconRef from '../images/svg/github_icon.svg';
+import linkedin_iconRef from '../images/svg/linkedin_icon.svg';
 
+const bodyRef = document.querySelector('[data-body]');
 
 const team = [
   {
     photo: `${teamLeadObj}`,
-    name: 'Vladyslav Krasovsky',
+    name: 'Vladyslav',
     role: 'Team-Lead',
+    github_path: 'https://github.com/vladkrasovsky',
+    linkedin_path: 'https://www.linkedin.com/in/kros16',
   },
   {
     photo: `${scrumMasterObj}`,
-    name: 'Veronika Moskaliuk',
+    name: 'Veronika',
     role: 'Scrum-Master',
+    github_path: 'https://github.com/Se1ena',
   },
   {
     photo: `${devStanyslavObj}`,
-    name: 'Stanyslav Cherniakov',
+    name: 'Stanyslav',
     role: 'Developer',
+    github_path: 'https://github.com/StanyslavCherniakov',
+    linkedin_path:
+      'https://www.linkedin.com/in/stanyslav-cherniakov-b6759a108/',
   },
   {
     photo: `${devViktoriiaObj}`,
-    name: 'Aleksieieva Viktoriia',
+    name: 'Vicktoriia',
     role: 'Developer',
-  },
-  {
-    photo: `${devDenysObj}`,
-    name: 'Denys Korsukov',
-    role: 'Developer',
-  },
-  {
-    photo: `${devIrynaObj}`,
-    name: `Iryna Diukova`,
-    role: 'Developer',
-  },
-  {
-    photo: `${devYanaObj}`,
-    name: 'Yana Lizogub',
-    role: 'Developer',
-  },
-  {
-    photo: `${devMariiaObj}`,
-    name: 'Mariia Prokopenko',
-    role: 'Developer',
+    github_path: 'https://github.com/Vicktoriia',
+    linkedin_path:
+      'https://www.linkedin.com/in/viktoriia-aleksieieva-603861248/?locale=en_US',
   },
   {
     photo: `${devOleksiiObj}`,
-    name: 'Oleksii Zablotskyi',
+    name: 'Oleksii',
     role: 'Developer',
+    github_path: 'https://github.com/zablockiy',
+  },
+  {
+    photo: `${devMariiaObj}`,
+    name: 'Mariia',
+    role: 'Developer',
+    github_path: 'https://github.com/Mary-knows',
+    linkedin_path:
+      'https://www.linkedin.com/in/%D0%BC%D0%B0%D1%80%D0%B8%D1%8F-%D0%BF%D1%80%D0%BE%D0%BA%D0%BE%D0%BF%D0%B5%D0%BD%D0%BA%D0%BE-488885118/',
+  },
+
+  {
+    photo: `${devIrynaObj}`,
+    name: `Iryna`,
+    role: 'Developer',
+    github_path: 'https://github.com/IrynaHridnova',
+    linkedin_path:
+      'https://www.linkedin.com/in/%D0%B8%D1%80%D0%B8%D0%BD%D0%B0-%D0%B4%D1%8E%D0%BA%D0%BE%D0%B2%D0%B0-4a2939258',
+  },
+  {
+    photo: `${devYanaObj}`,
+    name: 'Yana',
+    role: 'Developer',
+    github_path: 'https://github.com/YanaLiz',
+    linkedin_path: 'https://www.linkedin.com/in/yana-lizogub-4b0718258/',
+  },
+
+  {
+    photo: `${devSerhiiPadalkaObj}`,
+    name: 'Serhii',
+    role: 'Developer',
+    github_path: 'https://github.com/Padalka-Sergey',
+    linkedin_path:
+      'https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3Bq4G3GuGJRZW2ctPIEiYzhg%3D%3D',
+  },
+  {
+    photo: `${devDenysObj}`,
+    name: 'Denys',
+    role: 'Developer',
+    github_path: 'https://github.com/DenysKors',
+    linkedin_path: 'https://www.linkedin.com/in/denys-korsukov-31ba04217',
   },
   {
     photo: `${devSerhiiDenObj}`,
-    name: 'Serhii Denysiuk',
+    name: 'Serhii',
     role: 'Developer',
-  },
-  {
-    photo: `${devSerhiiPadalkaObj}`,
-    name: 'Serhii Padalka',
-    role: 'Developer',
+    github_path: 'https://github.com/CrabSerg',
+    linkedin_path: 'https://www.linkedin.com/in/serg-denysiuk-858519258/',
   },
   {
     photo: `${devOleksiiVitObj}`,
-    name: 'Oleksii Vitomskyi',
+    name: 'Oleksii',
     role: 'Developer',
+    github_path: 'https://github.com/Alexey7272',
+    linkedin_path:
+      'https://www.linkedin.com/in/%D0%B0%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9-%D0%B2%D0%B8%D1%82%D0%BE%D0%BC%D1%81%D0%BA%D0%B8%D0%B9-481a60185/',
   },
 ];
 
 const markupCard = team
-  .map(({ photo, name, role }) => {
+  .map(({ photo, name, role, github_path, linkedin_path }) => {
     return `<li class="team_card">
              
                <img loading="lazy" src="${photo}" alt="${name}" class="team_photo">
                <div class = "team_info">
               <p class="team_name">${name}</p>
+              <a href="${github_path}" class="link_social">
+               <img class="github_icon" src="${github_iconRef}" alt="github icon" width="30" />
+              </a>
+              <a href="${linkedin_path}">
+               <img class="linkedin_icon" src="${linkedin_iconRef}" alt="linkedin icon" width="30" />
+              </a>
                </div>
               <p class="team_role">${role}</p>
               
@@ -104,6 +143,7 @@ function openModal(e) {
   e.preventDefault();
   modal.show();
   window.addEventListener('keydown', closeModal);
+  bodyRef.classList.toggle('no-scroll');
 
   function closeModal(e) {
     if (e.code === 'Escape') {
