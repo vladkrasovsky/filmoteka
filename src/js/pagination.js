@@ -10,7 +10,7 @@ export function initPagination(data, callback) {
 
   const options = {
     totalItems: total_results,
-    itemsPerPage: results.length,
+    itemsPerPage: 20,
     visiblePages: 5,
     page: page,
     centerAlign: true,
