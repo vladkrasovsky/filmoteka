@@ -2,6 +2,7 @@ import Notiflix from 'notiflix';
 import { ThemovieSearch } from './API/Themoviesearch';
 import { createMarkup } from './createMarkup';
 import { initPagination, destroyPagination } from './pagination';
+import { spinerStart, spinerStop } from './loader';
 
 const galleryRef = document.querySelector('.movies__list');
 const pRef = document.querySelector('.header__no-search');
@@ -25,12 +26,15 @@ export function handleSearchSubmit(evt) {
 
 export async function searchByWord() {
   try {
+    spinerStart();
     const responseData = await searchMovies.getByQuery();
     renderGallery(responseData);
   } catch (error) {
     Notiflix.Notify.warning(
       'Sorry, something gone wrong. Please repeat a request'
     );
+  } finally {
+    spinerStop();
   }
 }
 
