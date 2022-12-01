@@ -4,6 +4,9 @@ export function createMarkup(movies) {
   return movies.reduce((acc, movie) => {
     const { poster_path, original_title, genre_ids, release_date, id } = movie;
 
+    const releaseYear =
+      release_date === '' ? 'Unknown' : release_date.slice(0, 4);
+
     return (
       acc +
       `<li class='movies__item' data-id='${id}'>
@@ -16,9 +19,11 @@ export function createMarkup(movies) {
                  alt='${original_title}'>
           </div>
           <p class='movies__title'>${original_title}</p>
+
           <p class='movies__genres genres'><span class='genres__text'>${parseGenres(
             genre_ids
-          )}</span> ${release_date.slice(0, 4)}</p>
+          )}</span> ${releaseYear}</p>
+
         </a>
       </li>`
     );
