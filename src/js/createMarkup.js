@@ -1,4 +1,5 @@
 import { parseGenres } from './parseGenres';
+import { themoviedb as config } from './constants';
 
 export function createMarkup(movies) {
   return movies.reduce((acc, movie) => {
@@ -7,16 +8,16 @@ export function createMarkup(movies) {
     const releaseYear =
       release_date === '' ? 'Unknown' : release_date.slice(0, 4);
 
+    const poster_url = poster_path
+      ? config.POSTER_BASE_URL + poster_path
+      : config.POSTER_PLACEHOLDER_URL;
+
     return (
       acc +
       `<li class='movies__item' data-id='${id}'>
         <a class='movies__link' href=''>
           <div class="thumb">
-            <img class='movies__image'
-                 src='https://image.tmdb.org/t/p/w500/${poster_path}'
-                 src='https://image.tmdb.org/t/p/w500${poster_path}'
-                 onerror="this.src='https://placehold.co/500x750?text=No+Image'"
-                 alt='${original_title}'>
+            <img class='movies__image' src='${poster_url}' alt='${original_title}'>
           </div>
           <p class='movies__title'>${original_title}</p>
 

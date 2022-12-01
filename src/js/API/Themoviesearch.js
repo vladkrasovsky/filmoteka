@@ -1,36 +1,36 @@
 import axios from 'axios';
+import { themoviedb as config } from '../constants';
 
-axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
+axios.defaults.baseURL = config.BASE_URL;
 
 export class ThemovieSearch {
   #params = {
     params: {
-      api_key: '68fa3d310c9d2cffbb85ba21d660e67a',
-      language: 'en-US',
+      api_key: config.API_KEY,
+      language: config.LANGUAGE,
     },
   };
 
-  constructor() { 
+  constructor() {
     this.searchQuery = '';
     this.page = 1;
   }
 
-  async getByQuery() { 
-    const urlAXIOS = `search/movie?query=${this.searchQuery}&page=${this.page}&include_adult=false`;
+  async getByQuery() {
+    const urlAXIOS = `search/movie?query=${this.searchQuery}&page=${this.page}&include_adult=${config.INCLUDE_ADULT}`;
     const { data } = await axios.get(urlAXIOS, this.#params);
     return data;
   }
-    
-  get query() { 
+
+  get query() {
     return this.searchQuery;
   }
 
-  set query(newQuery) { 
+  set query(newQuery) {
     this.searchQuery = newQuery;
   }
 
-  resetPage() { 
+  resetPage() {
     this.page = 1;
   }
-
 }

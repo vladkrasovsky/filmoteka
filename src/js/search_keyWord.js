@@ -1,6 +1,6 @@
-import { ThemovieSearch } from './API/Themoviesearch';
-import { parseGenres } from './parseGenres';
 import Notiflix from 'notiflix';
+import { ThemovieSearch } from './API/Themoviesearch';
+import { createMarkup } from './createMarkup';
 import { initPagination, destroyPagination } from './pagination';
 
 const galleryRef = document.querySelector('.movies__list');
@@ -45,30 +45,5 @@ function renderGallery(responseData) {
   destroyPagination();
   initPagination(responseData, searchByWord);
 
-  galleryMarkup(movieData);
-}
-
-function galleryMarkup(movieData) {
-  const markup = movieData
-    .map(({ poster_path, original_title, genre_ids, release_date, id }) => {
-      const releaseYear = release_date === '' ? 'Unknown' : release_date.slice(0, 4);
-
-      return `
-        <li class='movies__item' data-id='${id}'>
-            <a class='movies__link' href=''>
-                <div class="thumb">
-                    <img class='movies__image'
-                        src='https://image.tmdb.org/t/p/w500${poster_path}'onerror="this.src='https://placehold.co/500x750?text=No+Image'"
-                        alt='${original_title}'>
-                </div>
-                <p class='movies__title'>${original_title}</p>
-                <p class='movies__genres genres'><span class='genres__text'>${parseGenres(
-                  genre_ids
-                )}</span> ${releaseYear}</p>
-            </a>
-      </li>
-        `;
-    })
-    .join('');
-  galleryRef.innerHTML = markup;
+  galleryRef.innerHTML = createMarkup(movieData);
 }

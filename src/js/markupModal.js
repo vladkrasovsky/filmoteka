@@ -1,43 +1,58 @@
 import { parseGenres } from './parseGenres';
 import icons from '../images/icons.svg';
+import { themoviedb as config } from './constants';
 
 export function markupMovieModal(movie) {
+  const {
+    poster_path,
+    original_title,
+    vote_average,
+    vote_count,
+    popularity,
+    overview,
+    genres,
+  } = movie;
 
-  return (
-      `<div class="movie-modal movieModalRef">
+  const poster_url = poster_path
+    ? config.POSTER_BASE_URL + poster_path
+    : config.POSTER_PLACEHOLDER_URL;
+
+  return `<div class="movie-modal movieModalRef">
       <button class="movie-modal__btn-close btn" data-movie-modal-close>
         <svg class="movie-modal__icon-close" width="14px" height="14px">
-          <use href=${icons}#icon-close"></use>
+          <use href="${icons}#icon-close"></use>
         </svg>
       </button>
       <div class="movie-modal__thumb movieModalRef">
       <img class="movie-modal__img"
-        src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.original_title}" />
+        src="${poster_url}" alt="${original_title}" />
       </div>
       <div class="movie-modal__info">
-      <h2 class="movie-modal__title">${movie.original_title}</h2>
+      <h2 class="movie-modal__title">${original_title}</h2>
       <ul class="movie-modal__discription">
         <li class="movie-modal-discription__vote--text left">Vote / Votes</li>
         <li class="movie-modal-discription__vote--value right">
-          <span class="movie-modal__discription--accent">${movie.vote_average}</span> / ${movie.vote_count}
+          <span class="movie-modal__discription--accent">${vote_average}</span> / ${vote_count}
         </li>
         <li class="movie-modal-discription__popularity--text left">
           Popularity
         </li>
-        <li class="movie-modal-discription__popularity--value right">${movie.popularity}</li>
+        <li class="movie-modal-discription__popularity--value right">${popularity}</li>
         <li class="movie-modal-discription__original-title--text left">
           Original Title
         </li>
         <li class="movie-modal-discription__original-title--value right">
-        ${movie.original_title}
+        ${original_title}
         </li>
         <li class="movie-modal-discription__genre--text left">Genre</li>
-        <li class="movie-modal-discription__genre--value right">${movie.genre}</li>
+        <li class="movie-modal-discription__genre--value right">
+          ${genres[0]?.name || 'No genre'}
+        </li>
       </ul>
       <div class="movie-modal-about">
         <h3 class="movie-modal-about__title">About</h3>
         <p class="movie-modal-about__text">
-        ${movie.overview}
+        ${overview}
         </p>
         </div>
         <div class="movie-modal__btn-container">
@@ -49,6 +64,5 @@ export function markupMovieModal(movie) {
           </button>
         </div>
       </div>
-    </div>`
-  );
+    </div>`;
 }
