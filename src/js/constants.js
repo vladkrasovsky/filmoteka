@@ -7,4 +7,10 @@ export const themoviedb = {
   INCLUDE_ADULT: false,
 };
 
-export default { themoviedb };
+export const storageKey = {
+  WATCHED_LIST: 'watched-list',
+  QUEUE_LIST: 'queue-list',
+  ACTIVE_MOVIE: 'active-movie',
+};
+
+export default { themoviedb, storageKey };
