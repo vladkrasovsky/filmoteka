@@ -2,6 +2,7 @@ import { Themoviedb } from './API/Themoviedb';
 import { markupMovieModal } from './markupModal';
 import storageAPI from './API/storage.js';
 import { storageKey } from './constants';
+import { spinerStart, spinerStop } from './loader';
 
 const movieDetails = new Themoviedb();
 const movieCards = document.querySelector('.movies__list');
@@ -30,6 +31,7 @@ function onBackdropClick(e) {
 async function fetchOneMovie(movieId) {
   movieDetails.movieId = movieId;
   try {
+    spinerStart();
     const movieData = await movieDetails.getMovieDetails();
 
     movieBackdrop.innerHTML = markupMovieModal(movieData);
@@ -38,6 +40,8 @@ async function fetchOneMovie(movieId) {
     showModal();
   } catch (error) {
     console.log(error);
+  } finally {
+    spinerStop();
   }
 }
 
