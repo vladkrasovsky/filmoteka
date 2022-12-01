@@ -6,7 +6,6 @@ setTimeout(movieCardsSelector, 500);
 const movieBackdrop = document.querySelector('.movie__backdrop');
 
 movieBackdrop.addEventListener('click', CloseModal);
-window.addEventListener('keydown', closeModalEsc);
 
 const movieDetails = new Themoviedb();
 
@@ -32,10 +31,10 @@ async function fetchOneMovie(movieId) {
   const markup = markupMovieModal(movieData);
   movieBackdrop.innerHTML = markup;
 
-  // const modal = basicLightbox.create(markup);
-
   movieBackdrop.classList.remove('is-hidden');
   document.body.classList.add('no-scroll');
+
+  window.addEventListener('keydown', closeModalEsc);
 }
 
 function closeModalEsc(e) {
