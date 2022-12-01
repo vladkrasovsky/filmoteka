@@ -1,10 +1,10 @@
 import LsService from './API/storage';
-import Notiflix from "notiflix";
+import Notiflix from 'notiflix';
 
 const refs = {
   watchedRef: document.querySelector('.btn-watched'),
   queueRef: document.querySelector('.btn-queue'),
-}
+};
 
 const WATCHED_KEY = 'watched-list';
 let watchedList = [];
@@ -15,19 +15,19 @@ let queueList = [];
 refs.watchedRef.addEventListener('click', saveToWatched);
 refs.queueRef.addEventListener('click', saveToQueue);
 
-const activeMovie = LsService.load('@@@@@@@');  // ADD REAL KEY!!!!
+const activeMovie = LsService.load('@@@@@@@'); // ADD REAL KEY!!!!
 
 function saveToWatched() {
   if (watchedList.find(el => el.id === activeMovie.id)) {
-    const idx = watchedList.findIndex(el => el.id === activeMovie.id)
+    const idx = watchedList.findIndex(el => el.id === activeMovie.id);
     watchedList.splice(idx, 1);
-    LsService.save(WATCHED_KEY, watchedList)
+    LsService.save(WATCHED_KEY, watchedList);
     Notiflix.Notify.warning('This film was removed from your library!');
     refs.watchedRef.textContent = 'Add to Watched';
     return;
   }
-  watchedList.push(activeMovie)
-  LsService.save(WATCHED_KEY, watchedList)
+  watchedList.push(activeMovie);
+  LsService.save(WATCHED_KEY, watchedList);
   Notiflix.Notify.success('This film was added to you library!');
   refs.watchedRef.textContent = 'Remove from Watched';
 }
@@ -41,25 +41,23 @@ function saveToQueue() {
     refs.queueRef.textContent = 'Add to Queue';
     return;
   }
-  queueList.push(activeMovie)
-  LsService.save(QUEUE_KEY, queueList)
+  queueList.push(activeMovie);
+  LsService.save(QUEUE_KEY, queueList);
   Notiflix.Notify.success('This film was added to you library!');
   refs.queueRef.textContent = 'Remove from Queue';
 }
 
 export function getLocalStorageData() {
   if (LsService.load(WATCHED_KEY)) {
-    watchedList.push(...LsService.load(WATCHED_KEY))
+    watchedList.push(...LsService.load(WATCHED_KEY));
   }
   if (LsService.load(QUEUE_KEY)) {
-    queueList.push(...LsService.load(QUEUE_KEY))
+    queueList.push(...LsService.load(QUEUE_KEY));
   }
 }
 
-
 // ==================================================
 // STATIC OBJ IN LocalStorage
-
 
 // function saveToWatched() {
 //   if (watchedList.find(el => el.id === filmsList.results[3].id)) {
