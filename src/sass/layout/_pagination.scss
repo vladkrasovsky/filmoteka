@@ -2,10 +2,6 @@
   padding: 0 0 60px !important;
 }
 
-.dark .tui-pagination {
-  background-color: #272d34;
-}
-
 .tui-pagination .tui-page-btn {
   border: none !important;
   border-radius: 5px;
@@ -27,3 +23,12 @@
   background-color: $color-accent !important;
   border-color: $color-accent !important;
 }
+
+.dark .tui-pagination {
+  background-color: #272d34;
+}
+
+.dark .tui-pagination .tui-page-btn {
+  color: #fff;
+}
+
