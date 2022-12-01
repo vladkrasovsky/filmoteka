@@ -20,7 +20,7 @@
 
   transition: all $transition-animation $transition-duration;
   transition: opacity $transition-animation $transition-duration,
-  visibility $transition-animation $transition-duration;
+    visibility $transition-animation $transition-duration;
 
   &.is-hidden {
     opacity: 0;
@@ -44,7 +44,7 @@
   background-color: $color-text-lighter;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  overflow-y:scroll;
+  overflow-y: scroll;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -79,6 +79,7 @@
     color: $color-text;
     background-color: $color-text-lighter;
     transition: color $transition-animation $transition-duration;
+    user-select: none;
 
     &:hover,
     &:focus {
@@ -90,6 +91,7 @@
   &__icon-close {
     fill: currentColor;
     display: block;
+    pointer-events: none;
   }
 }
 
@@ -167,20 +169,19 @@
 .left {
   width: 30%;
 
-  line-height: calc(16/12);
+  line-height: calc(16 / 12);
 
-  color: #8C8C8C;
-  ;
+  color: #8c8c8c;
 }
 
 .right {
   width: 65%;
 
-  line-height: calc(14/12);
+  line-height: calc(14 / 12);
 }
 
 .movie-modal-discription__original-title--value .right {
-  line-height: calc(16/12);
+  line-height: calc(16 / 12);
   text-transform: uppercase;
 }
 
@@ -208,7 +209,6 @@
   gap: 20px;
   justify-content: space-evenly;
 
-
   @media screen and (min-width: 768px) {
     gap: 15px;
     justify-content: flex-start;
@@ -224,7 +224,7 @@
   flex-wrap: wrap;
 
   font-weight: 500;
-  line-height: calc(16/12);
+  line-height: calc(16 / 12);
 
   border: 1px solid $color-text;
   border-radius: 5px;
@@ -246,5 +246,4 @@
   @media screen and (min-width: 1280px) {
     width: 136px;
   }
-
 }
