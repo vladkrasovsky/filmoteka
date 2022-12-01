@@ -16,7 +16,7 @@ export function createMarkup(movies) {
     return (
       acc +
       `<li class='movies__item' data-id='${id}'>
-        <a class='movies__link' href=''>
+        <a class='movies__link' href='' data-id='${id}'>
           <div class="thumb">
             <img class='movies__image' src='${poster_url}' alt='${original_title}'>
           </div>
