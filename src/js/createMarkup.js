@@ -12,6 +12,8 @@ export function createMarkup(movies) {
       ? config.POSTER_BASE_URL + poster_path
       : config.POSTER_PLACEHOLDER_URL;
 
+    const genreIds = genre_ids ? genre_ids : movie.genres?.map(({ id }) => id);
+
     return (
       acc +
       `<li class='movies__item' data-id='${id}'>
@@ -22,7 +24,7 @@ export function createMarkup(movies) {
           <p class='movies__title'>${original_title}</p>
 
           <p class='movies__genres genres'><span class='genres__text'>${parseGenres(
-            genre_ids
+            genreIds
           )}</span> ${releaseYear}</p>
 
         </a>

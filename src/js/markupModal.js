@@ -1,6 +1,7 @@
 import { parseGenres } from './parseGenres';
 import icons from '../images/icons.svg';
-import { themoviedb as config } from './constants';
+import { storageKey, themoviedb as config } from './constants';
+import storageAPI from './API/storage';
 
 export function markupMovieModal(movie) {
   const {
@@ -16,6 +17,14 @@ export function markupMovieModal(movie) {
   const poster_url = poster_path
     ? config.POSTER_BASE_URL + poster_path
     : config.POSTER_PLACEHOLDER_URL;
+
+  const isWatched = Boolean(
+    storageAPI.load(storageKey.WATCHED_LIST).find(el => el.id === movie.id)
+  );
+
+  const isQueue = Boolean(
+    storageAPI.load(storageKey.QUEUE_LIST).find(el => el.id === movie.id)
+  );
 
   return `<div class="movie-modal movieModalRef">
       <button class="movie-modal__btn-close btn" data-movie-modal-close>
@@ -57,10 +66,10 @@ export function markupMovieModal(movie) {
         </div>
         <div class="movie-modal__btn-container">
           <button type="button" class="movie-modal__btn btn-watched">
-            add to watched
+            ${isWatched ? 'remove from watched' : 'add to watched'}
           </button>
           <button type="button" class="movie-modal__btn btn-queue">
-            add to queue
+            ${isQueue ? 'remove from queue' : 'add to queue'}
           </button>
         </div>
       </div>

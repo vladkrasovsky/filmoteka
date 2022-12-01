@@ -29,6 +29,15 @@
   @extend %list;
 }
 
+.movies__list .no-movies {
+  width: 100%;
+  font-size: 24px;
+  color: $color-accent;
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+}
+
 .movies__item {
   max-width: 460px;
   margin-bottom: 20px;
