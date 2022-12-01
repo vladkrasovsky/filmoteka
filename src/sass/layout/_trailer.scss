@@ -1,0 +1,49 @@
+.youtube-icon {
+  position: absolute;
+  opacity: 0.8;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &:hover, &:focus {
+    cursor: pointer;
+  }
+}
+
+.basicLightbox--iframe .basicLightbox__placeholder {
+  background-color: transparent;
+  padding: 0 0;
+  width: 100%;
+  height: auto;
+  overflow-y: visible;
+
+  @media screen and (min-width: 768px) {
+    width: auto;
+    height: auto;
+  }
+}
+
+.icon-close {
+  position: absolute;
+  top: -35px;
+  right: 0;
+  color: red;
+}
+
+iframe {
+  width: 100%;
+  height: 400px;
+  margin-top: auto;
+  margin-bottom: auto;
+  pointer-events: auto;
+
+  @media screen and (min-width: 768px) {
+    width: 680px;
+    height: 400px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 960px;
+    height: 540px;
+  }
+}

@@ -1,8 +1,9 @@
-import { Themoviedb } from './API/Themoviedb';
-import { markupMovieModal } from './markupModal';
+import {Themoviedb} from './API/Themoviedb';
+import {markupMovieModal} from './markupModal';
 import storageAPI from './API/storage.js';
-import { storageKey } from './constants';
-import { spinerStart, spinerStop } from './loader';
+import {storageKey} from './constants';
+import {spinerStart, spinerStop} from './loader';
+import {getTrailer, addCloseBtn} from "./trailer";
 
 const movieDetails = new Themoviedb();
 const movieCards = document.querySelector('.movies__list');
@@ -42,6 +43,8 @@ async function fetchOneMovie(movieId) {
     console.log(error);
   } finally {
     spinerStop();
+    const trailerBtn = document.querySelector('.youtube-icon')
+    trailerBtn.addEventListener('click', onYoutubeClick);
   }
 }
 
@@ -62,4 +65,12 @@ function closeModal() {
   document.body.classList.remove('no-scroll');
   window.removeEventListener('keydown', closeModalEsc);
   storageAPI.remove(storageKey.ACTIVE_MOVIE);
+}
+
+async function onYoutubeClick() {
+  console.log(movieDetails.movieId)
+  const trailer = await movieDetails.getMovieTrailer();
+  const videoRef = trailer.results[0].key;
+  const trailerInstance = getTrailer(videoRef)
+  trailerInstance.show(() => addCloseBtn());
 }

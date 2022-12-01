@@ -20,7 +20,7 @@
 
   transition: all $transition-animation $transition-duration;
   transition: opacity $transition-animation $transition-duration,
-    visibility $transition-animation $transition-duration;
+  visibility $transition-animation $transition-duration;
 
   &.is-hidden {
     opacity: 0;
@@ -95,6 +95,7 @@
 }
 
 .movie-modal__thumb {
+  position: relative;
   width: 100%;
   height: min-content;
 
