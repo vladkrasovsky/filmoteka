@@ -1,59 +1,62 @@
 import { Themoviedb } from './API/Themoviedb';
 import { markupMovieModal } from './markupModal';
-
-setTimeout(movieCardsSelector, 500);
-
-const movieBackdrop = document.querySelector('.movie__backdrop');
-
-movieBackdrop.addEventListener('click', CloseModal);
+import storageAPI from './API/storage.js';
+import { storageKey } from './constants';
 
 const movieDetails = new Themoviedb();
+const movieCards = document.querySelector('.movies__list');
+const movieBackdrop = document.querySelector('.movie__backdrop');
 
-function movieCardsSelector() {
-  const movieCards = document.querySelector('.movies__list');
-  movieCards.addEventListener('click', onMovieCardClick);
-}
+movieCards.addEventListener('click', onMovieCardClick);
+movieBackdrop.addEventListener('click', onBackdropClick);
 
 function onMovieCardClick(e) {
   e.preventDefault();
-  if (e.target.nodeName === 'UL') {
-    return;
-  }
+  if (e.target.nodeName === 'UL') return;
+  fetchOneMovie(e.target.dataset.id);
+}
 
-  const movieId = e.target.dataset.id;
-  fetchOneMovie(movieId);
+function onBackdropClick(e) {
+  e.preventDefault();
+  const classList = e.target.classList;
+  if (
+    classList.contains('movie__backdrop') ||
+    classList.contains('movie-modal__btn-close')
+  ) {
+    closeModal();
+  }
 }
 
 async function fetchOneMovie(movieId) {
   movieDetails.movieId = movieId;
-  const movieData = await movieDetails.getMovieDetails();
+  try {
+    const movieData = await movieDetails.getMovieDetails();
+    const markup = markupMovieModal(movieData);
 
-  const markup = markupMovieModal(movieData);
-  movieBackdrop.innerHTML = markup;
-
-  movieBackdrop.classList.remove('is-hidden');
-  document.body.classList.add('no-scroll');
-
-  window.addEventListener('keydown', closeModalEsc);
+    movieBackdrop.innerHTML = markup;
+    storageAPI.save(storageKey.ACTIVE_MOVIE, movieData);
+    window.addEventListener('keydown', closeModalEsc);
+    showModal();
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function closeModalEsc(e) {
   if (e.code === 'Escape') {
     e.preventDefault();
-    movieBackdrop.classList.add('is-hidden');
-    document.body.classList.remove('no-scroll');
-    window.removeEventListener('keydown', closeModalEsc);
+    closeModal();
   }
 }
 
-function CloseModal(e) {
-  e.preventDefault();
-  if (
-    e.target.classList.contains('movie__backdrop') ||
-    e.target.classList.contains('movie-modal__btn-close')
-  ) {
-    movieBackdrop.classList.add('is-hidden');
-    document.body.classList.remove('no-scroll');
-    window.removeEventListener('keydown', closeModalEsc);
-  }
+function showModal() {
+  movieBackdrop.classList.remove('is-hidden');
+  document.body.classList.add('no-scroll');
+}
+
+function closeModal() {
+  movieBackdrop.classList.add('is-hidden');
+  document.body.classList.remove('no-scroll');
+  window.removeEventListener('keydown', closeModalEsc);
+  storageAPI.remove(storageKey.ACTIVE_MOVIE);
 }
