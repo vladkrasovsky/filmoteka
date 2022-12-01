@@ -31,9 +31,8 @@ async function fetchOneMovie(movieId) {
   movieDetails.movieId = movieId;
   try {
     const movieData = await movieDetails.getMovieDetails();
-    const markup = markupMovieModal(movieData);
 
-    movieBackdrop.innerHTML = markup;
+    movieBackdrop.innerHTML = markupMovieModal(movieData);
     storageAPI.save(storageKey.ACTIVE_MOVIE, movieData);
     window.addEventListener('keydown', closeModalEsc);
     showModal();

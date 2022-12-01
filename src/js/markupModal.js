@@ -19,11 +19,11 @@ export function markupMovieModal(movie) {
     : config.POSTER_PLACEHOLDER_URL;
 
   const isWatched = Boolean(
-    storageAPI.load(storageKey.WATCHED_LIST).find(el => el.id === movie.id)
+    storageAPI.load(storageKey.WATCHED_LIST)?.find(el => el.id === movie.id)
   );
 
   const isQueue = Boolean(
-    storageAPI.load(storageKey.QUEUE_LIST).find(el => el.id === movie.id)
+    storageAPI.load(storageKey.QUEUE_LIST)?.find(el => el.id === movie.id)
   );
 
   return `<div class="movie-modal movieModalRef">
