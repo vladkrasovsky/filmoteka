@@ -10,8 +10,8 @@ const refs = {
   moviesList: document.querySelector('.moviesListRef'),
   watchedBtn: document.querySelector('button[data-btn-watched]'),
   queueBtn: document.querySelector('button[data-btn-queue]'),
-  watchedRef: document.querySelector('.btn-watched'),
-  queueRef: document.querySelector('.btn-queue'),
+  // watchedRef: document.querySelector('.btn-watched'),
+  // queueRef: document.querySelector('.btn-queue'),
 };
 
 const WATCHED_KEY = 'watched-list';
@@ -21,8 +21,8 @@ onWatched();
 
 refs.watchedBtn.addEventListener('click', onWatched);
 refs.queueBtn.addEventListener('click', onQueue);
-refs.watchedRef.addEventListener('click', onWatched);
-refs.queueRef.addEventListener('click', onQueue);
+// refs.watchedRef.addEventListener('click', onWatched);
+// refs.queueRef.addEventListener('click', onQueue);
 
 function onWatched() {
   const movies = LsService.load(WATCHED_KEY);
