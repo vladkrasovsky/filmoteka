@@ -4,9 +4,8 @@ import { markupMovieModal } from './markupModal';
 setTimeout(movieCardsSelector, 500);
 
 const movieBackdrop = document.querySelector('.movie__backdrop');
-const modalCloseBtn = document.querySelector('.movie-modal__btn-close');
 
-modalCloseBtn.addEventListener('click', CloseModal);
+movieBackdrop.addEventListener('click', CloseModal);
 window.addEventListener('keydown', closeModalEsc);
 
 const movieDetails = new Themoviedb();
@@ -26,7 +25,6 @@ function onMovieCardClick(e) {
   fetchOneMovie(movieId);
 }
 
-
 async function fetchOneMovie(movieId) {
   movieDetails.movieId = movieId;
   const movieData = await movieDetails.getMovieDetails();
@@ -37,21 +35,26 @@ async function fetchOneMovie(movieId) {
   // const modal = basicLightbox.create(markup);
 
   movieBackdrop.classList.remove('is-hidden');
-  document.body.classList.add("no-scroll");
-  }
+  document.body.classList.add('no-scroll');
+}
 
-  function closeModalEsc(e) {
-    if (e.code === 'Escape') {
-      e.preventDefault();
-      movieBackdrop.classList.add('is-hidden');
-      document.body.classList.remove("no-scroll");
-      window.removeEventListener('keydown', closeModalEsc);
-    }
-  }
-
-  function CloseModal(e) {
+function closeModalEsc(e) {
+  if (e.code === 'Escape') {
     e.preventDefault();
     movieBackdrop.classList.add('is-hidden');
-    document.body.classList.remove("no-scroll");
+    document.body.classList.remove('no-scroll');
     window.removeEventListener('keydown', closeModalEsc);
   }
+}
+
+function CloseModal(e) {
+  e.preventDefault();
+  if (
+    e.target.classList.contains('movie__backdrop') ||
+    e.target.classList.contains('movie-modal__btn-close')
+  ) {
+    movieBackdrop.classList.add('is-hidden');
+    document.body.classList.remove('no-scroll');
+    window.removeEventListener('keydown', closeModalEsc);
+  }
+}
