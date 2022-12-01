@@ -14,7 +14,7 @@ movieBackdrop.addEventListener('click', onBackdropClick);
 function onMovieCardClick(e) {
   e.preventDefault();
   if (e.target.nodeName === 'UL') return;
-  fetchOneMovie(e.target.dataset.id);
+  fetchOneMovie(e.target.getAttribute('data-id'));
 }
 
 function onBackdropClick(e) {
