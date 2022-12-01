@@ -21,7 +21,7 @@ export class Themoviedb {
   }
 
   async getMovieDetails() {
-    const urlAXIOS =`movie/${this.movieId};`
+    const urlAXIOS = `movie/${this.movieId};`;
     const { data } = await axios.get(urlAXIOS, this.#params);
     return data;
   }

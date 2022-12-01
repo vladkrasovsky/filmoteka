@@ -10,27 +10,26 @@ export class ThemovieSearch {
     },
   };
 
-  constructor() { 
+  constructor() {
     this.searchQuery = '';
     this.page = 1;
   }
 
-  async getByQuery() { 
+  async getByQuery() {
     const urlAXIOS = `search/movie?query=${this.searchQuery}&page=${this.page}&include_adult=false`;
     const { data } = await axios.get(urlAXIOS, this.#params);
     return data;
   }
-    
-  get query() { 
+
+  get query() {
     return this.searchQuery;
   }
 
-  set query(newQuery) { 
+  set query(newQuery) {
     this.searchQuery = newQuery;
   }
 
-  resetPage() { 
+  resetPage() {
     this.page = 1;
   }
-
 }
