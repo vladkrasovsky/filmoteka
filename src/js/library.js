@@ -1,8 +1,8 @@
 import LsService from './API/storage';
-import {createMarkup} from './createMarkup';
-import {getLocalStorageData} from './localStorage';
+import { createMarkup } from './createMarkup';
+import { getLocalStorageData } from './localStorage';
 import trendings from '../data/movies/trendings.json';
-
+import * as modalMovie from './modalMovie';
 
 getLocalStorageData();
 
