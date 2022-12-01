@@ -13,5 +13,9 @@ export function parseGenres(genresArray) {
     genresNames.splice(2, 0, ' Other');
   }
 
+  if (genresNames.length === 0) {
+    genresNames = 'No genres';
+  }
+
   return genresNames;
 }
