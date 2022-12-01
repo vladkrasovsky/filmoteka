@@ -29,7 +29,7 @@ function onQueue() {
 }
 
 function renderMoviesList(movies, listName) {
-  refs.moviesList.innerHTML = movies.length
+  refs.moviesList.innerHTML = movies?.length
     ? createMarkup(movies)
     : createNoMoviesMarkup(listName);
 }
