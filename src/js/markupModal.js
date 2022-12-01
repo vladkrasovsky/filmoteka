@@ -2,12 +2,10 @@ import { parseGenres } from './parseGenres';
 import icons from '../images/icons.svg';
 
 export function markupMovieModal(movie) {
-
-  return (
-      `<div class="movie-modal movieModalRef">
+  return `<div class="movie-modal movieModalRef">
       <button class="movie-modal__btn-close btn" data-movie-modal-close>
         <svg class="movie-modal__icon-close" width="14px" height="14px">
-          <use href=${icons}#icon-close"></use>
+          <use href="${icons}#icon-close"></use>
         </svg>
       </button>
       <div class="movie-modal__thumb movieModalRef">
@@ -49,6 +47,5 @@ export function markupMovieModal(movie) {
           </button>
         </div>
       </div>
-    </div>`
-  );
+    </div>`;
 }
