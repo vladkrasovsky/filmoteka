@@ -17,8 +17,6 @@ export function markupMovieModal(movie) {
     ? config.POSTER_BASE_URL + poster_path
     : config.POSTER_PLACEHOLDER_URL;
 
-  const genresMarkup = genres.map(({ name }) => `${name}`).join(', ');
-
   return `<div class="movie-modal movieModalRef">
       <button class="movie-modal__btn-close btn" data-movie-modal-close>
         <svg class="movie-modal__icon-close" width="14px" height="14px">
@@ -47,7 +45,9 @@ export function markupMovieModal(movie) {
         ${original_title}
         </li>
         <li class="movie-modal-discription__genre--text left">Genre</li>
-        <li class="movie-modal-discription__genre--value right">${genresMarkup}</li>
+        <li class="movie-modal-discription__genre--value right">
+          ${genres[0]?.name || 'No genre'}
+        </li>
       </ul>
       <div class="movie-modal-about">
         <h3 class="movie-modal-about__title">About</h3>
