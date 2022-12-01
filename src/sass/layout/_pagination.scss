@@ -1,5 +1,9 @@
 .tui-pagination {
-  margin: 0 0 60px !important;
+  padding: 0 0 60px !important;
+}
+
+.dark .tui-pagination {
+  background-color: #272d34;
 }
 
 .tui-pagination .tui-page-btn {
