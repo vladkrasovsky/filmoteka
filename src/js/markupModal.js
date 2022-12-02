@@ -39,36 +39,36 @@ export function markupMovieModal(movie) {
       <div class="movie-modal__info">
       <h2 class="movie-modal__title">${original_title}</h2>
       <ul class="movie-modal__discription">
-        <li class="movie-modal-discription__vote--text left">Vote / Votes</li>
+        <li class="movie-modal-discription__vote--text left votes">Vote / Votes</li>
         <li class="movie-modal-discription__vote--value right">
           <span class="movie-modal__discription--accent">${vote_average}</span> / ${vote_count}
         </li>
-        <li class="movie-modal-discription__popularity--text left">
+        <li class="movie-modal-discription__popularity--text left popularity">
           Popularity
         </li>
         <li class="movie-modal-discription__popularity--value right">${popularity}</li>
-        <li class="movie-modal-discription__original-title--text left">
+        <li class="movie-modal-discription__original-title--text left original-title">
           Original Title
         </li>
         <li class="movie-modal-discription__original-title--value right">
         ${original_title}
         </li>
-        <li class="movie-modal-discription__genre--text left">Genre</li>
+        <li class="movie-modal-discription__genre--text left genres">Genre</li>
         <li class="movie-modal-discription__genre--value right">
           ${genres[0]?.name || 'No genre'}
         </li>
       </ul>
       <div class="movie-modal-about">
-        <h3 class="movie-modal-about__title">About</h3>
+        <h3 class="movie-modal-about__title about">About</h3>
         <p class="movie-modal-about__text">
         ${overview}
         </p>
         </div>
         <div class="movie-modal__btn-container">
-          <button type="button" class="movie-modal__btn btn-watched">
+          <button type="button" class="movie-modal__btn btn-watched add-watched">
             ${isWatched ? 'remove from watched' : 'add to watched'}
           </button>
-          <button type="button" class="movie-modal__btn btn-queue">
+          <button type="button" class="movie-modal__btn btn-queue add-queue">
             ${isQueue ? 'remove from queue' : 'add to queue'}
           </button>
         </div>

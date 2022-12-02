@@ -195,3 +195,51 @@
     justify-content: space-evenly;
   }
 }
+
+// Перемикання мови
+
+.header_button-leng {
+  background-color: transparent;
+  border: none;
+  border-radius: 3px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.header_button-leng:focus {
+  box-shadow: 0 0 0 2px $color-secondary, 0 0 8px $color-secondary;
+  border: none;
+}
+
+.header_button-leng:hover {
+  box-shadow: 0 0 0 2px $color-secondary, 0 0 8px $color-secondary;
+  border: none;
+}
+.header_button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 30px;
+}
+
+select,
+option {
+  background-color: rgb(41, 40, 40);
+  color: #ffffff;
+}
+
+// Вибір жанрів
+.movie{
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+  }
+  
+.filters__item {
+    background-color: rgba(102, 97, 97, 0.041);
+ 
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    width: 280px;
+  }

@@ -3,6 +3,8 @@ import { markupMovieModal } from './markupModal';
 import storageAPI from './API/storage.js';
 import { storageKey } from './constants';
 import { spinerStart, spinerStop } from './loader';
+import { onClickEn } from './languageSwitcher';
+import { onClickUa } from './languageSwitcher';
 
 const movieDetails = new Themoviedb();
 const movieCards = document.querySelector('.movies__list');
@@ -33,8 +35,11 @@ async function fetchOneMovie(movieId) {
   try {
     spinerStart();
     const movieData = await movieDetails.getMovieDetails();
-
+    
     movieBackdrop.innerHTML = markupMovieModal(movieData);
+    console.log(onClickEn());
+    console.log(onClickUa());
+    
     storageAPI.save(storageKey.ACTIVE_MOVIE, movieData);
     window.addEventListener('keydown', closeModalEsc);
     showModal();
@@ -63,3 +68,4 @@ function closeModal() {
   window.removeEventListener('keydown', closeModalEsc);
   storageAPI.remove(storageKey.ACTIVE_MOVIE);
 }
+
