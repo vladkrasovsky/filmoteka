@@ -269,4 +269,10 @@
 
 .dark .movie-modal__btn-close {
   background-color: #272d34b3;
+  color: #fff;
+}
+
+.dark .movie-modal__btn-close:hover {
+  background-color: #fff;
+  color: #FF6B08;
 }
