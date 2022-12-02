@@ -104,6 +104,11 @@
   .movies__item {
     margin-bottom: 0;
     flex-basis: calc(100% / 2 - $gap);
+
+    &:hover {
+    transform: scale(1.07);
+    filter: saturate(2);
+  }
   }
 
   .thumb {
