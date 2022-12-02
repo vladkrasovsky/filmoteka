@@ -15,7 +15,7 @@ import devOleksiiVitObj from '../images/team_photos/webp/Oleksii_Vitomskyi.webp'
 import github_iconRef from '../images/svg/github_icon.svg';
 import linkedin_iconRef from '../images/svg/linkedin_icon.svg';
 
-const bodyRef = document.querySelector('[data-body]');
+const bodyRef = document.body;
 
 const team = [
   {
@@ -137,13 +137,19 @@ ${markupCard}
 
 const container = document.querySelector('.footer__team-modal-btn');
 container.addEventListener('click', openModal);
-const modal = basicLightbox.create(markupTeamModal);
+const modal = basicLightbox.create(markupTeamModal, {
+  onShow: () => {
+    bodyRef.classList.add('no-scroll');
+  },
+  onClose: () => {
+    bodyRef.classList.remove('no-scroll');
+  }
+});
 
 function openModal(e) {
   e.preventDefault();
   modal.show();
   window.addEventListener('keydown', closeModal);
-  bodyRef.classList.toggle('no-scroll');
 
   function closeModal(e) {
     if (e.code === 'Escape') {

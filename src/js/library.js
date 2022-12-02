@@ -3,6 +3,7 @@ import { storageKey } from './constants';
 import { createMarkup } from './createMarkup';
 import { getLocalStorageData } from './localStorage';
 import * as modalMovie from './modalMovie';
+import * as modalTeam from './modalTeam';
 
 const refs = {
   moviesList: document.querySelector('.moviesListRef'),
