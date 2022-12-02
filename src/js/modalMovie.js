@@ -43,7 +43,7 @@ async function fetchOneMovie(movieId) {
     console.log(error);
   } finally {
     spinerStop();
-    const trailerBtn = document.querySelector('.youtube-icon')
+    const trailerBtn = document.querySelector('.youtube-icon-btn')
     trailerBtn.addEventListener('click', onYoutubeClick);
   }
 }

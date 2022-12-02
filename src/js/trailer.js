@@ -4,7 +4,7 @@ import icons from '../images/icons.svg';
 export function getTrailer(key) {
   const youtubeTrailer = basicLightbox.create(`
     <iframe src="https://www.youtube.com/embed/${key}"  frameborder="0"
-     allow="gyroscope;" allowfullscreen></iframe>
+     allow="gyroscope; autoplay;"  allowfullscreen></iframe>
 `,)
   return youtubeTrailer;
 }
