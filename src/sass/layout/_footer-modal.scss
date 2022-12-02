@@ -1,55 +1,62 @@
 .footer__team-modal-btn {
   // cursor: pointer;
-  
+
   padding: 0;
   border: none;
   background-color: transparent;
-    color: $color-text-middle;
-    font-size: 14px;
-    line-height: 1.1;
-    border-bottom: 1px solid;
-    @media screen and (min-width: 768px) {
-      font-size: 16px;
-    }
-    @media screen and (min-width: 1024px) {
-      font-size: 19px;
-    }
+  color: $color-text-middle;
+  font-size: 14px;
+  line-height: 1.1;
+  border-bottom: 1px solid;
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+  @media screen and (min-width: 1024px) {
+    font-size: 19px;
+  }
 }
 
 .basicLightbox {
-  padding: 20px;
   overflow-y: scroll;
 }
 
 .basicLightbox__placeholder {
+  position: absolute;
+  top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0 20px;
   text-align: center;
   text-decoration: none;
+  position: absolute;
+  top: 20px;
   width: 280px;
   background-color: $bg-footer;
   border-radius: 10px;
-  // height: 100%;
+  height: auto;
   overflow-y: auto;
   @media screen and (min-width: 420px) and (max-width: 767px) {
-    top: 5%;
+    position: absolute;
+    top: 20px;
     width: 360px;
   }
 
   @media screen and (min-width: 768px) {
+    position: absolute;
     width: 480px;
-    top: 5%;
+    top: 20px;
   }
 
   @media screen and (min-width: 1024px) {
     width: 640px;
+    position: absolute;
+    top: 50px;
   }
 }
 
 .team_title {
-  color:$color-text-middle;
+ color: $color-accent;
   display: flex;
   align-items: center;
   font-size: 16px;
@@ -106,10 +113,12 @@
 .team_info {
   display: flex;
   align-items: flex-end;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
+
 .team_name {
-  // font-size: larger;
-  // color: var($color-text-middle);
+  
   margin-bottom: 5px;
   font-weight: 500;
 }
@@ -118,7 +127,25 @@
   @media screen and (max-width: (768px - 1)) {
     font-size: 14px;
   }
-  color:$color-secondary;
+  color: $color-secondary;
+}
+
+.github_icon {
+  margin-left: 10px;
+  transition: 500ms;
+
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+
+.linkedin_icon {
+  margin-left: 10px;
+  transition: 500ms;
+
+  &:hover {
+    transform: scale(1.5);
+  }
 }
 
 .dark .footer__team-modal-btn {
