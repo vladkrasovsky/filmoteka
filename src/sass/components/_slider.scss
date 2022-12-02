@@ -1,0 +1,50 @@
+@import '/node_modules/swiper/swiper-bundle.css';
+
+.slider{
+  padding-top: 20px;
+  background-color: #fff;
+}
+.slider__title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  text-align: center;
+
+  color:$color-accent;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: calc(30/16);
+  text-transform: uppercase;
+}
+
+
+.swiper {
+  height: 200px;
+
+  @media screen and (min-width:768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width:1280px) {
+    width: 1280px;
+  }
+
+  &-slide{
+    text-align: center;
+  }
+}
+
+.swiper-wrapper{
+  width: 100%;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: $color-accent;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px;
+}
