@@ -22,6 +22,6 @@ window.onload = function(){
 		}
 	}
 }
-export default scrollToTop();
+export default scrollToTop;
 
 
