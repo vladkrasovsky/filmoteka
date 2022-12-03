@@ -6,10 +6,19 @@ import { spinerStart, spinerStop } from './loader';
 
 const movieDetails = new Themoviedb();
 const movieCards = document.querySelector('.movies__list');
+const sliderCards = document.querySelector('.swiperWrapperRef');
 const movieBackdrop = document.querySelector('.movie__backdrop');
+
 
 movieCards.addEventListener('click', onMovieCardClick);
 movieBackdrop.addEventListener('click', onBackdropClick);
+
+try {
+  sliderCards.addEventListener('click', onMovieCardClick);
+} catch (error) {
+    return
+  } 
+
 
 function onMovieCardClick(e) {
   e.preventDefault();
