@@ -18,7 +18,12 @@ export function createMarkup(movies) {
       `<li class='movies__item' data-id='${id}'>
         <a class='movies__link' href='' data-id='${id}'>
           <div class="thumb">
-            <img class='movies__image' src='${poster_url}' alt='${original_title}'>
+            <img
+              class='movies__image'
+              src='${poster_url}'
+              alt='${original_title}'
+              onerror="this.src='${config.POSTER_PLACEHOLDER_URL}'"
+            >
           </div>
           <p class='movies__title'>${original_title}</p>
 
