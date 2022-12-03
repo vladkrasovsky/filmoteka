@@ -1,8 +1,10 @@
-import Swiper, { Navigation, Virtual } from 'swiper';
+import Swiper, { Navigation } from 'swiper';
 
 // init Swiper:
-const swiper = new Swiper('.swiper', {
-  modules: [Navigation, Virtual],
+
+export function onSlider() {
+  const swiper = new Swiper('.swiper', {
+  modules: [Navigation],
   loop: true,
   initialSlide:0,
   slidesPerGroup: 1,
@@ -33,16 +35,18 @@ const swiper = new Swiper('.swiper', {
     prevEl: '.swiper-button-prev',
   },
 
-  virtual: {
-    slides: (function () {
-      let slide = []
-      for (let i = 0; i < 300; i++) {
-        slide.push(`<div class = "swiper-slide__movie">Слайд №${i}</div>`);
-      }
-      return slide;
-    }()),
-  },
+  // virtual: {
+  //   slides: (function () {
+  //     let slide = []
+  //     for (let i = 0; i < 300; i++) {
+  //       slide.push(`<div class = "swiper-slide__movie">Слайд №${i}</div>`);
+  //     }
+  //     return slide;
+  //   }()),
+  // },
 
   slideToClickedSlide: true,
 
 });
+}
+
