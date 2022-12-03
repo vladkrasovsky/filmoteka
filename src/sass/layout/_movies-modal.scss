@@ -20,7 +20,7 @@
 
   transition: all $transition-animation $transition-duration;
   transition: opacity $transition-animation $transition-duration,
-  visibility $transition-animation $transition-duration;
+    visibility $transition-animation $transition-duration;
 
   &.is-hidden {
     opacity: 0;
@@ -44,7 +44,8 @@
   background-color: $color-text-lighter;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
