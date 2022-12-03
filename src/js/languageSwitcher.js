@@ -13,7 +13,9 @@ const refs = {
 };
 
 export function onClickEn() {
-  LsService.save('lang', 'EN')
+  refs.uaLanguageBtn.disabled = false;
+  refs.enLanguageBtn.disabled = true;
+  LsService.save('lang', 'EN');
 
   refs.headerHome.textContent = 'home';
   refs.headerLibrary.textContent = 'my library';
@@ -21,10 +23,14 @@ export function onClickEn() {
     refs.headerLibrBtnWatched.textContent = 'watched';
     refs.headerLibrBtnQueue.textContent = 'queue';
   }
+
+  changeGenres();
 }
 
 export function onClickUa() {
-  LsService.save('lang', 'UA')
+  refs.uaLanguageBtn.disabled = true;
+  refs.enLanguageBtn.disabled = false;
+  LsService.save('lang', 'UA');
 
   refs.headerHome.textContent = 'Головна';
   refs.headerLibrary.textContent = 'Бібліотека';
@@ -58,17 +64,41 @@ export function changeModalLang() {
 }
 
 
-function changeGenres() {
+export function changeGenres() {
   const cardsRef = document.querySelectorAll('.movies__item');
-  cardsRef.forEach(el => {
-    const arr = el.querySelector('.genres__text').textContent.split(',')
-    const result = genres.map(el => {
-      arr.find(elem => elem === el.name)
+  if (LsService.load('lang') === "UA") {
+    cardsRef.forEach(el => {
+      const arr = el.querySelector('.genres__text').textContent.split(',');
+      const ress = arr.map(el => {
+        return (genres.find(element => element.name === el.trim())?.id)
+      })
+      const nameArr = ress.map(elem => genresUa.find(e => elem === e.id)?.name).join(', ');
+      console.log(nameArr);
+      el.querySelector('.genres__text').textContent = nameArr;
     })
-    console.log(result)
-  })
+  }
+  if (LsService.load('lang') === "EN") {
+    cardsRef.forEach(el => {
+      const arr = el.querySelector('.genres__text').textContent.split(',');
+      const ress = arr.map(el => {
+        return (genresUa.find(element => element.name === el.trim())?.id)
+      })
+      const nameArr = ress.map(elem => genres.find(e => elem === e.id)?.name).join(', ');
+      console.log(nameArr);
+      el.querySelector('.genres__text').textContent = nameArr;
+    })
+  }
+}
 
-
+export function setLang() {
+  if (LsService.load('lang') === "EN") {
+    refs.uaLanguageBtn.disabled = false;
+    refs.enLanguageBtn.disabled = true;
+  }
+  if (LsService.load('lang') === "UA") {
+    refs.uaLanguageBtn.disabled = true;
+    refs.enLanguageBtn.disabled = false;
+  }
 }
 
 export {refs};
