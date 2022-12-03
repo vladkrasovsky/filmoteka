@@ -7,7 +7,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     cursor: pointer;
   }
 }
@@ -15,7 +16,8 @@
 .youtube-icon {
   transition: transform 250ms linear;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     transform: scale(1.05);
   }
 }
@@ -26,6 +28,8 @@
   width: 100%;
   height: auto;
   overflow-y: visible;
+  pointer-events: all;
+  user-select: none;
 
   @media screen and (min-width: 768px) {
     width: auto;
@@ -37,7 +41,12 @@
   position: absolute;
   top: -35px;
   right: 0;
-  color: red;
+  color: $color-secondary;
+
+  &:hover {
+    color: white;
+    cursor: pointer;
+  }
 }
 
 iframe {
