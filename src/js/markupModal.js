@@ -1,6 +1,6 @@
-import { parseGenres } from './parseGenres';
+import {parseGenres} from './parseGenres';
 import icons from '../images/icons.svg';
-import { storageKey, themoviedb as config } from './constants';
+import {storageKey, themoviedb as config} from './constants';
 import storageAPI from './API/storage';
 
 export function markupMovieModal(movie) {
@@ -33,6 +33,11 @@ export function markupMovieModal(movie) {
         </svg>
       </button>
       <div class="movie-modal__thumb movieModalRef">
+ <button class = 'youtube-icon-btn'>
+      <svg class="youtube-icon" width="80px" height="80px">
+        <use href="${icons}#youtube-play"></use>
+      </svg>
+</button>
       <img class="movie-modal__img"
         src="${poster_url}" alt="${original_title}" />
       </div>

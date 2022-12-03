@@ -27,6 +27,21 @@
     }
   }
 
+  &__year {
+    display: inline;
+    color: $color-text-middle;
+    font-size: 14px;
+    line-height: 1.1;
+  
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+    }
+  
+    @media screen and (min-width: 1024px) {
+      font-size: 19px;
+    }
+  }
+
   &__icon-heart {
     color: $color-accent;
     transform: translateY(2px);
