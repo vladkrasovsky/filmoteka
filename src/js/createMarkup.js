@@ -5,8 +5,7 @@ export function createMarkup(movies) {
   return movies.reduce((acc, movie) => {
     const { poster_path, original_title, genre_ids, release_date, id } = movie;
 
-    const releaseYear =
-      release_date === '' ? 'Unknown' : release_date.slice(0, 4);
+    const releaseYear = release_date ? release_date?.slice(0, 4) : 'No date';
 
     const poster_url = poster_path
       ? config.POSTER_BASE_URL + poster_path
@@ -17,7 +16,7 @@ export function createMarkup(movies) {
     return (
       acc +
       `<li class='movies__item' data-id='${id}'>
-        <a class='movies__link' href=''>
+        <a class='movies__link' href='' data-id='${id}'>
           <div class="thumb">
             <img class='movies__image' src='${poster_url}' alt='${original_title}'>
           </div>

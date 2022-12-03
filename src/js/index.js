@@ -1,10 +1,12 @@
-import {onLoadPage} from './trendingMovies';
-import {getLocalStorageData} from './localStorage';
-import {handleSearchSubmit} from './search_keyWord';
+import { onLoadPage } from './trendingMovies';
+import { getLocalStorageData } from './localStorage';
+import { handleSearchSubmit } from './search_keyWord';
 import * as modalMovie from './modalMovie';
-import {onClickEn} from './languageSwitcher';
-import {onClickUa} from './languageSwitcher';
-import {refs} from './languageSwitcher';
+import * as modalTeam from './modalTeam';
+import * as footerYear from './footerYear';
+import { onClickEn } from './languageSwitcher';
+import { onClickUa } from './languageSwitcher';
+import { refs } from './languageSwitcher';
 
 onLoadPage();
 getLocalStorageData();

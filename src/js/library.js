@@ -6,6 +6,8 @@ import {onClickEn} from './languageSwitcher';
 import {onClickUa} from './languageSwitcher';
 import {refs as langRefs} from './languageSwitcher';
 import * as modalMovie from './modalMovie';
+import * as modalTeam from './modalTeam';
+import * as footerYear from './footerYear';
 
 const refs = {
   moviesList: document.querySelector('.moviesListRef'),

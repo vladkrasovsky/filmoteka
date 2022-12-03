@@ -167,6 +167,10 @@
     @include mq(tablet) {
       width: 300px;
     }
+
+        @include mq(desktop) {
+          width: 360px;
+        }
   }
 
   &__input,
@@ -184,7 +188,23 @@
     padding: 0;
     padding-left: 15px;
   }
+
+    &__input:-webkit-autofill,
+    &__input:-webkit-autofill:hover,
+    &__input:-webkit-autofill:focus,
+    &__input:-webkit-autofill:active {
+      transition: background-color 5000s ease-in-out 0s;
+      -webkit-text-fill-color: $color-text-lighter;
+    }
 }
+
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// input:-webkit-autofill:active {
+//   transition: background-color 5000s ease-in-out 0s;
+//   -webkit-text-fill-color: $color-text-lighter;
+// }
 
 .header__no-search {
   @include font($fs: 14px, $lh: 1.14, $fw: normal, $ls: null);
