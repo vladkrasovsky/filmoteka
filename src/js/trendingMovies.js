@@ -1,7 +1,7 @@
-import { Themoviedb } from './API/Themoviedb';
-import { createMarkup } from './createMarkup';
-import { initPagination } from './pagination';
-import { spinerStart, spinerStop } from './loader';
+import {Themoviedb} from './API/Themoviedb';
+import {createMarkup} from './createMarkup';
+import {initPagination} from './pagination';
+import {spinerStart, spinerStop} from './loader';
 
 export const trendingMovies = new Themoviedb();
 
@@ -12,7 +12,7 @@ export async function onLoadPage() {
     spinerStart();
 
     const data = await trendingMovies.getTrendings();
-    const { results: movie, total_pages: totalPages } = data;
+    const {results: movie, total_pages: totalPages} = data;
 
     initPagination(data, onLoadPage);
 
@@ -20,6 +20,7 @@ export async function onLoadPage() {
 
     const markup = createMarkup(movie);
     moviesListRef.innerHTML = markup;
+
   } catch (error) {
     console.log(error);
   } finally {

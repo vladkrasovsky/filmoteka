@@ -1,7 +1,10 @@
 import storageAPI from './API/storage';
-import { storageKey } from './constants';
-import { createMarkup } from './createMarkup';
-import { getLocalStorageData } from './localStorage';
+import {storageKey} from './constants';
+import {createMarkup} from './createMarkup';
+import {getLocalStorageData} from './localStorage';
+import {onClickEn} from './languageSwitcher';
+import {onClickUa} from './languageSwitcher';
+import {refs as langRefs} from './languageSwitcher';
 import * as modalMovie from './modalMovie';
 
 const refs = {
@@ -9,6 +12,9 @@ const refs = {
   watchedBtn: document.querySelector('button[data-btn-watched]'),
   queueBtn: document.querySelector('button[data-btn-queue]'),
 };
+
+langRefs.enLanguageBtn.addEventListener('click', onClickEn);
+langRefs.uaLanguageBtn.addEventListener('click', onClickUa);
 
 getLocalStorageData();
 onWatched();
