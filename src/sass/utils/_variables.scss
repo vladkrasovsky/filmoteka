@@ -34,3 +34,10 @@ $transition-animation: cubic-bezier(0.4, 0, 0.2, 1);
 
 // Gutters
 $gap: 16px;
+
+// Animation line
+$promo-elements-displayed: 5;
+$promo-element-width: calc(100vw / 5);
+$promo-animation-duration: 25s;
+
+
