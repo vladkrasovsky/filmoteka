@@ -52,7 +52,7 @@
   }
 
   &__box-nav {
-    margin-bottom: 48px;
+    margin-bottom: 34px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,15 +62,24 @@
     display: inline-block;
     padding-top: 8px;
     padding-bottom: 8px;
-    width: 30px;
+    padding-left: 10px;
+    width: 40px;
     height: 40px;
 
     color: $color-text-lighter;
 
+    @include mq(mobile-only) {
+      padding-left: 10px;
+    }
+
     @include mq(tablet) {
       display: flex;
       align-items: center;
-      width: 170px;
+      width: 190px;
+    }
+
+    @include mq(tablet) {
+      padding-left: 0;
     }
   }
 }
@@ -87,12 +96,6 @@
   width: 24px;
   height: 24px;
   transition: color $transition-duration $transition-animation;
-
-  // &:hover,
-  // &:focus {
-  //         color: $hover-color;
-
-  //     }
 }
 
 .header__logo-txt {
@@ -109,41 +112,41 @@
   @include mq(desktop) {
     margin-left: 10px;
   }
-  // &:hover,
-  // &:focus {
-  //     color: $hover-color;
-
-  // }
 }
 
 .movie-search {
   position: relative;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 16px;
+  align-items: center;
+  margin-bottom: 13px;
+  padding-left: 10px;
 
   @include mq(tablet) {
-    width: 336px;
+    width: 356px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   @include mq(desktop) {
-    width: 394px;
-    //  margin-left: auto;
-    //  margin-right: auto;
-    //  margin-bottom: 20px;
+    width: 404px;
   }
 
   &::after {
     content: '';
     display: block;
     position: absolute;
-    bottom: 0px;
-    width: 100%;
+    bottom: 7px;
+    width: 93%;
     height: 0.5px;
     background-color: $color-text-lighter;
+    @include mq(tablet) {
+      width: 94%;
+    }
+    @include mq(desktop) {
+      width: 95%;
+    }
   }
 }
 
@@ -158,7 +161,7 @@
 
     &:hover,
     &:focus {
-      color: $hover-color;
+      color: $color-text;
     }
   }
 
@@ -189,8 +192,18 @@
   }
 
   &__submit {
-    padding: 0;
-    padding-left: 15px;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color $transition-duration $transition-animation;
+  }
+
+  &__submit:hover {
+    background-color: $bg-btn-active;
+    z-index: 9;
+  }
+
+  &__submit:hover &__icon-logo {
+    color: $color-text;
   }
 
   &__input:-webkit-autofill,
@@ -202,15 +215,9 @@
   }
 }
 
-// input:-webkit-autofill,
-// input:-webkit-autofill:hover,
-// input:-webkit-autofill:focus,
-// input:-webkit-autofill:active {
-//   transition: background-color 5000s ease-in-out 0s;
-//   -webkit-text-fill-color: $color-text-lighter;
-// }
-
 .header__no-search {
+  padding-left: 10px;
+  padding-right: 10px;
   @include font($fs: 14px, $lh: 1.14, $fw: normal, $ls: null);
   font-style: normal;
   color: $color-text-warning;
