@@ -7,15 +7,15 @@ export function createMarkupSlider(movieUa) {
     const poster_url = poster_path
       ? config.POSTER_BASE_URL + poster_path
         : config.POSTER_PLACEHOLDER_URL;
-      
+
     //   ${original_title}
 
     return (
       acc +
         `<div class="swiper-slide" data-id='${id}'>
         <a class='movies__link' href='' data-id='${id}'>
-      <img class="movies__image" src='${poster_url}' alt='${original_title}'>
-      <p class='movies__title'>${original_title}</p>
+      <img class="movies__image movies-slider__image" src='${poster_url}' alt='${original_title}'>
+      <p class='movies-slider__title'>${original_title}</p>
         </div>`
     );
   }, '');

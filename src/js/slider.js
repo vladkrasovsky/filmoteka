@@ -20,13 +20,13 @@ export function onSlider() {
     },
 
     768: {
-      slidesPerView: 5,
-      spaceBetween: 10,
+      slidesPerView: 4,
+      spaceBetween: 35,
     },
 
     1280: {
       slidesPerView: 8,
-      spaceBetween: 10,
+      spaceBetween: 35,
     },
   },
 
@@ -44,8 +44,6 @@ export function onSlider() {
   //     return slide;
   //   }()),
   // },
-
-  slideToClickedSlide: true,
 
 });
 }
