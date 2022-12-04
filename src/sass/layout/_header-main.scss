@@ -35,10 +35,13 @@
 .header {
   &__container {
     padding-top: 30px;
-    width: 280px;
+    max-width: 500px;
     min-height: 138px;
 
     @include mq(tablet) {
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 100%;
       width: 704px;
     }
 
@@ -168,9 +171,9 @@
       width: 300px;
     }
 
-        @include mq(desktop) {
-          width: 360px;
-        }
+    @include mq(desktop) {
+      width: 360px;
+    }
   }
 
   &__input,
@@ -189,13 +192,13 @@
     padding-left: 15px;
   }
 
-    &__input:-webkit-autofill,
-    &__input:-webkit-autofill:hover,
-    &__input:-webkit-autofill:focus,
-    &__input:-webkit-autofill:active {
-      transition: background-color 5000s ease-in-out 0s;
-      -webkit-text-fill-color: $color-text-lighter;
-    }
+  &__input:-webkit-autofill,
+  &__input:-webkit-autofill:hover,
+  &__input:-webkit-autofill:focus,
+  &__input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: $color-text-lighter;
+  }
 }
 
 // input:-webkit-autofill,
