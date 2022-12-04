@@ -8,18 +8,27 @@ import * as modalTeam from './modalTeam';
 import * as footerYear from './footerYear';
 import * as scrollToTop from './button';
 
+//
+// Variables
+//
 const refs = {
   moviesList: document.querySelector('.moviesListRef'),
   watchedBtn: document.querySelector('button[data-btn-watched]'),
   queueBtn: document.querySelector('button[data-btn-queue]'),
 };
 
+//
+// Inits & Event Listeners
+//
 getLocalStorageData();
 onWatched();
 
 refs.watchedBtn.addEventListener('click', onWatched);
 refs.queueBtn.addEventListener('click', onQueue);
 
+//
+// Methods
+//
 function onWatched() {
   const movies = storageAPI.load(storageKey.WATCHED_LIST);
   renderMoviesList(movies, 'Watched');
