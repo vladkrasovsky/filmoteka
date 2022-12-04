@@ -2,24 +2,33 @@ import storageAPI from './API/storage';
 import { storageKey } from './constants';
 import { createMarkup } from './createMarkup';
 import { getLocalStorageData } from './localStorage';
-import { createNoMoviesMarkup } from './createNoMoviesMarkup';
+import { createMarkupNoMovies } from './createMarkupNoMovies';
 import * as modalMovie from './modalMovie';
 import * as modalTeam from './modalTeam';
 import * as footerYear from './footerYear';
 import * as scrollToTop from './button';
 
+//
+// Variables
+//
 const refs = {
   moviesList: document.querySelector('.moviesListRef'),
   watchedBtn: document.querySelector('button[data-btn-watched]'),
   queueBtn: document.querySelector('button[data-btn-queue]'),
 };
 
+//
+// Inits & Event Listeners
+//
 getLocalStorageData();
 onWatched();
 
 refs.watchedBtn.addEventListener('click', onWatched);
 refs.queueBtn.addEventListener('click', onQueue);
 
+//
+// Methods
+//
 function onWatched() {
   const movies = storageAPI.load(storageKey.WATCHED_LIST);
   renderMoviesList(movies, 'Watched');
@@ -35,7 +44,7 @@ function onQueue() {
 function renderMoviesList(movies, listName) {
   refs.moviesList.innerHTML = movies?.length
     ? createMarkup(movies)
-    : createNoMoviesMarkup(listName);
+    : createMarkupNoMovies(listName);
 }
 
 function toggleActiveBtn(activeBtn, inactiveBtn) {
