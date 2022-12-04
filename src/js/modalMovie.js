@@ -4,12 +4,12 @@ import storageAPI from './API/storage.js';
 import { storageKey } from './constants';
 import { spinerStart, spinerStop } from './loader';
 import { getTrailer, addCloseBtn } from './trailer';
+import Notiflix from 'notiflix';
 
 const movieDetails = new Themoviedb();
 const movieCards = document.querySelector('.movies__list');
 const sliderCards = document.querySelector('.swiperWrapperRef');
 const movieBackdrop = document.querySelector('.movie__backdrop');
-
 
 movieCards.addEventListener('click', onMovieCardClick);
 movieBackdrop.addEventListener('click', onBackdropClick);
@@ -17,9 +17,8 @@ movieBackdrop.addEventListener('click', onBackdropClick);
 try {
   sliderCards.addEventListener('click', onMovieCardClick);
 } catch (error) {
-    return
-  } 
-
+  return;
+}
 
 function onMovieCardClick(e) {
   e.preventDefault();
@@ -78,6 +77,10 @@ function closeModal() {
 
 async function onYoutubeClick() {
   const trailer = await movieDetails.getMovieTrailer();
+  if (!trailer.results.length) {
+    Notiflix.Notify.warning('Sorry, the trailer was not found.');
+    return;
+  }
   const videoRef = trailer.results[0].key;
   const trailerInstance = getTrailer(videoRef);
   trailerInstance.show(addCloseBtn.bind(trailerInstance));
