@@ -1,0 +1,17 @@
+#top {
+  position: fixed;
+  right: 0;
+  bottom: 50px;
+  background: #ff6b08;
+  transition: 250ms all;
+  cursor: pointer;
+  border-radius: 20%;
+  padding: 2px 3px;
+  border: #ff6b08;
+  // opacity: 0.5;
+  @media screen and (min-width: 768px) {
+    right: 10px;
+    bottom: 20px;
+    padding: 10px 12px;
+  }
+}
