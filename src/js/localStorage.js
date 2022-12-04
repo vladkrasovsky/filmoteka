@@ -1,7 +1,7 @@
 import LsService from './API/storage';
 import { storageKey } from './constants';
 import Notiflix from 'notiflix';
-import { createNoMoviesMarkup } from './createNoMoviesMarkup';
+import { createMarkupNoMovies } from './createMarkupNoMovies';
 
 const refs = {
   movieModal: document.querySelector('[data-movie-modal]'),
@@ -74,7 +74,7 @@ function removeMovieFromList(listName, itemID) {
     if (!LsService.load(storageKey[`${listName}_LIST`.toUpperCase()]).length) {
       refs.moviesList.insertAdjacentHTML(
         'afterbegin',
-        createNoMoviesMarkup(listName)
+        createMarkupNoMovies(listName)
       );
     }
   }

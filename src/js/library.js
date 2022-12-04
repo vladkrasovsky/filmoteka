@@ -2,7 +2,7 @@ import storageAPI from './API/storage';
 import { storageKey } from './constants';
 import { createMarkup } from './createMarkup';
 import { getLocalStorageData } from './localStorage';
-import { createNoMoviesMarkup } from './createNoMoviesMarkup';
+import { createMarkupNoMovies } from './createMarkupNoMovies';
 import * as modalMovie from './modalMovie';
 import * as modalTeam from './modalTeam';
 import * as footerYear from './footerYear';
@@ -35,7 +35,7 @@ function onQueue() {
 function renderMoviesList(movies, listName) {
   refs.moviesList.innerHTML = movies?.length
     ? createMarkup(movies)
-    : createNoMoviesMarkup(listName);
+    : createMarkupNoMovies(listName);
 }
 
 function toggleActiveBtn(activeBtn, inactiveBtn) {
