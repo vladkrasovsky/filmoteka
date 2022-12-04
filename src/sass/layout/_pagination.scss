@@ -1,5 +1,5 @@
 .tui-pagination {
-  margin: 0 0 60px !important;
+  padding: 0 0 60px !important;
 }
 
 .tui-pagination .tui-page-btn {
@@ -22,4 +22,24 @@
 .tui-pagination strong {
   background-color: $color-accent !important;
   border-color: $color-accent !important;
+}
+
+.dark .tui-pagination {
+  background-color: #272d34;
+}
+
+.dark .tui-pagination .tui-page-btn {
+  color: #fff;
+}
+
+.dark .tui-pagination .tui-page-btn:hover {
+  background: #3b434b;
+}
+
+.dark .tui-pagination .tui-ico-ellip,
+.dark .tui-pagination .tui-ico-first,
+.dark .tui-pagination .tui-ico-last,
+.dark .tui-pagination .tui-ico-next,
+.dark .tui-pagination .tui-ico-prev {
+  filter: brightness(5);
 }

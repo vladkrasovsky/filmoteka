@@ -2,6 +2,7 @@ import { trendingMovies } from './trendingMovies';
 import { searchMovies } from './search_keyWord';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.min.css';
+import { scrollTop } from './button';
 
 const paginationContainerID = 'tui-pagination-container';
 
@@ -23,6 +24,7 @@ export function initPagination(data, callback) {
     trendingMovies.page = currentPage;
     searchMovies.page = currentPage;
     callback();
+    scrollTop();
   });
 }
 

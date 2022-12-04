@@ -35,12 +35,15 @@
 
 .header {
   &__container {
-    padding-top: 32px;
-    width: 300px;
+    padding-top: 30px;
+    max-width: 500px;
     min-height: 138px;
 
     @include mq(tablet) {
-      width: 724px;
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 100%;
+      width: 704px;
     }
 
     @include mq(desktop) {
@@ -75,9 +78,9 @@
       width: 190px;
     }
 
-         @include mq(tablet) {
-          padding-left: 0;
-         }
+    @include mq(tablet) {
+      padding-left: 0;
+    }
   }
 }
 
@@ -109,7 +112,6 @@
   @include mq(desktop) {
     margin-left: 10px;
   }
-  
 }
 
 .movie-search {
@@ -142,9 +144,9 @@
     @include mq(tablet) {
       width: 94%;
     }
-        @include mq(desktop) {
-          width: 95%;
-        }
+    @include mq(desktop) {
+      width: 95%;
+    }
   }
 }
 
@@ -195,14 +197,14 @@
     transition: background-color $transition-duration $transition-animation;
   }
 
-      &__submit:hover {
-        background-color: $bg-btn-active;
-        z-index: 9;
-     }
+  &__submit:hover {
+    background-color: $bg-btn-active;
+    z-index: 9;
+  }
 
-         &__submit:hover &__icon-logo {
-          color: $color-text;
-         }
+  &__submit:hover &__icon-logo {
+    color: $color-text;
+  }
 
   &__input:-webkit-autofill,
   &__input:-webkit-autofill:hover,
@@ -213,7 +215,6 @@
   }
 }
 
-
 .header__no-search {
   padding-left: 10px;
   padding-right: 10px;
@@ -223,5 +224,42 @@
   @include mq(tablet) {
     display: flex;
     justify-content: space-evenly;
+  }
+}
+
+.marquee {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+
+  background-color: #2061c9;
+}
+
+.marquee span {
+  color: #dada16;
+
+  font-size: 20px;
+  font-weight: 500;
+
+  display: inline-block;
+  padding-left: 100%; /* -webkit-animation: scroll 10s infinite linear; */
+  animation: scroll 70s infinite linear;
+}
+
+@-webkit-keyframes scroll {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(-100%, 0);
+  }
+}
+@keyframes scroll {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
   }
 }
