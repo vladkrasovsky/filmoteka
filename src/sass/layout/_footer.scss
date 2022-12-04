@@ -3,6 +3,7 @@
   margin-top: auto;
   padding-top: 30px;
   padding-bottom: 30px;
+  overflow-x: hidden;
 
   &__container {
     text-align: center;
@@ -32,11 +33,11 @@
     color: $color-text-middle;
     font-size: 14px;
     line-height: 1.1;
-  
+
     @media screen and (min-width: 768px) {
       font-size: 16px;
     }
-  
+
     @media screen and (min-width: 1024px) {
       font-size: 19px;
     }
@@ -72,6 +73,6 @@
   color: #fff;
 }
 
-.dark .footer__year{
+.dark .footer__year {
   color: #fff;
 }
