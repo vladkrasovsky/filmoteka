@@ -1,5 +1,5 @@
 import { trendingMovies } from './trendingMovies';
-import { searchMovies } from './search_keyWord';
+import { searchMovies } from './searchMovies';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.min.css';
 import { scrollTop } from './button';
