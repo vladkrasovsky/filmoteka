@@ -1,25 +1,14 @@
+const button = document.querySelector('#top');
 
-const button = document.querySelector('#top')
+window.addEventListener('scroll', function () {
+  button.hidden = window.pageYOffset < document.documentElement.clientHeight;
+});
 
-window.addEventListener('scroll', function() {
-      button.hidden = (pageYOffset < document.documentElement.clientHeight);
-    });
+button.addEventListener('click', scrollTop);
 
-window.onload = function () {
-	
-	let scrolled;
-	let timer;
-	
-	document.getElementById('top').onclick = function () {
-		scrolled = window.pageYOffset;
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth'
-		});
-
-	}
-
+export function scrollTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
 }
-
-
-
