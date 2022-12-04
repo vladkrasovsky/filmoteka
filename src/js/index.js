@@ -7,6 +7,7 @@ import * as footerYear from './footerYear';
 import {onClickEn, onClickUa, setLang, refs} from './languageSwitcher';
 
 
+
 onLoadPage();
 getLocalStorageData();
 // setLang();

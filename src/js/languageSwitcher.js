@@ -8,6 +8,7 @@ const refs = {
 
   headerHome: document.querySelector('#nav-link-home'),
   headerLibrary: document.querySelector('#nav-link-library'),
+  searchInput: document.querySelector('.movie-search__input'),
   headerLibrBtnWatched: document.querySelector('.btn-watched'),
   headerLibrBtnQueue: document.querySelector('.btn-queue'),
 };
@@ -17,11 +18,13 @@ export function onClickEn() {
   refs.enLanguageBtn.disabled = true;
   LsService.save('lang', 'EN');
 
+  refs.searchInput.setAttribute('placeholder', 'Movie search');
   refs.headerHome.textContent = 'home';
   refs.headerLibrary.textContent = 'my library';
   if (refs.headerLibrBtnWatched) {
     refs.headerLibrBtnWatched.textContent = 'watched';
     refs.headerLibrBtnQueue.textContent = 'queue';
+    
   }
 
   changeGenres();
@@ -32,11 +35,13 @@ export function onClickUa() {
   refs.enLanguageBtn.disabled = false;
   LsService.save('lang', 'UA');
 
+  refs.searchInput.setAttribute('placeholder', 'Пошук фильмів');
   refs.headerHome.textContent = 'Головна';
   refs.headerLibrary.textContent = 'Бібліотека';
   if (refs.headerLibrBtnWatched) {
     refs.headerLibrBtnWatched.textContent = 'переглянуто';
     refs.headerLibrBtnQueue.textContent = 'подивитись';
+    
   }
 
   changeGenres();
