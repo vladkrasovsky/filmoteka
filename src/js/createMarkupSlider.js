@@ -12,7 +12,12 @@ export function createMarkupSlider(movieUa) {
       acc +
       `<div class="swiper-slide" data-id="${id}">
         <a class="movies__link" href="" data-id="${id}">
-        <img class="movies__image" src="${poster_url}" alt="${original_title}">
+        <img
+          class="movies__image"
+          src="${poster_url}"
+          alt="${original_title}"
+          onerror="this.src='${config.POSTER_PLACEHOLDER_URL}'"
+        >
         <p class="movies__title">${original_title}</p>
       </div>`
     );
