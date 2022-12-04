@@ -24,7 +24,7 @@ export function createMarkup(movies) {
     return (
       acc +
       `<li class='movies__item' data-id='${id}'>
-        <a class='movies__link' href='' data-id='${id}'>
+        <a class='movies__link' href='' data-id='${id}' aria-label="Read more about the ${original_title}">
 
           <div class="thumb" data-id-thumb="${id}">
             <img
