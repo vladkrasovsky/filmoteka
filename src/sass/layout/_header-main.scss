@@ -3,6 +3,7 @@
   min-height: 230px;
 
   background-size: cover;
+  background-color: $bg-header;
   background-image: url(../images/header_home/home_mob@1x.webp);
 
   @include mq(retina) {
@@ -168,9 +169,9 @@
       width: 300px;
     }
 
-        @include mq(desktop) {
-          width: 360px;
-        }
+    @include mq(desktop) {
+      width: 360px;
+    }
   }
 
   &__input,
@@ -189,13 +190,13 @@
     padding-left: 15px;
   }
 
-    &__input:-webkit-autofill,
-    &__input:-webkit-autofill:hover,
-    &__input:-webkit-autofill:focus,
-    &__input:-webkit-autofill:active {
-      transition: background-color 5000s ease-in-out 0s;
-      -webkit-text-fill-color: $color-text-lighter;
-    }
+  &__input:-webkit-autofill,
+  &__input:-webkit-autofill:hover,
+  &__input:-webkit-autofill:focus,
+  &__input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: $color-text-lighter;
+  }
 }
 
 // input:-webkit-autofill,

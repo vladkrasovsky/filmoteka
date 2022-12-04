@@ -23,6 +23,7 @@ export function createMarkup(movies) {
               src='${poster_url}'
               alt='${original_title}'
               onerror="this.src='${config.POSTER_PLACEHOLDER_URL}'"
+              loading="lazy"
             >
           </div>
           <p class='movies__title'>${original_title}</p>
