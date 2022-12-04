@@ -1,5 +1,5 @@
 import { Themoviedb } from './API/Themoviedb';
-import { markupMovieModal } from './markupModal';
+import { createMarkupModal } from './createMarkupModal';
 import storageAPI from './API/storage.js';
 import { storageKey } from './constants';
 import { spinerStart, spinerStop } from './loader';
@@ -43,7 +43,7 @@ async function fetchOneMovie(movieId) {
     spinerStart();
     const movieData = await movieDetails.getMovieDetails();
 
-    movieBackdrop.innerHTML = markupMovieModal(movieData);
+    movieBackdrop.innerHTML = createMarkupModal(movieData);
     storageAPI.save(storageKey.ACTIVE_MOVIE, movieData);
     window.addEventListener('keydown', closeModalEsc);
     showModal();

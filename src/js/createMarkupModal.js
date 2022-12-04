@@ -2,7 +2,7 @@ import icons from '../images/icons.svg';
 import { storageKey, themoviedb as config } from './constants';
 import storageAPI from './API/storage';
 
-export function markupMovieModal(movie) {
+export function createMarkupModal(movie) {
   const {
     poster_path,
     original_title,
