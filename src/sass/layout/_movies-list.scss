@@ -4,6 +4,10 @@
   background-color: #ffffff;
 }
 
+.dark .movies {
+  background-color: #272d34;
+}
+
 .movies__list {
   @extend %list;
 }
@@ -61,6 +65,14 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 1.16;
+}
+
+.movies .movies__title {
+  color: #222;
+}
+
+.dark .movies .movies__title {
+  color: #fff;
 }
 
 .movies__genres {
