@@ -32,7 +32,7 @@ export function markupMovieModal(movie) {
         </svg>
       </button>
       <div class="movie-modal__thumb movieModalRef">
- <button class = 'youtube-icon-btn'>
+ <button class = 'youtube-icon-btn' title="Watch Trailer">
       <svg class="youtube-icon" width="80px" height="80px">
         <use href="${icons}#youtube-play"></use>
       </svg>
