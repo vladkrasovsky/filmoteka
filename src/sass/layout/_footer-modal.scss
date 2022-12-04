@@ -153,22 +153,30 @@
   }
 }
 
+.dark .link_social img {
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
 .dark .footer__team-modal-btn {
   color: #fff;
 }
 
 .dark .basicLightbox__placeholder {
   background-color: #7b1525;
- }
+}
 
- .dark .team_name {
+.dark .team_name {
   color: #fff;
- }
+}
 
- .dark .team_role {
-  color: #000;
- }
+.dark .team_role {
+  color: #f8bfbf;
+}
 
- .dark .team_title {
+.dark .team_title {
   color: #fff;
- }
+}
