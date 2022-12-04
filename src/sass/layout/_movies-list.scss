@@ -47,6 +47,7 @@
   height: 100%;
   border-radius: 5px;
   user-select: none;
+  background-color: $bg-footer;
   object-fit: cover;
 
   @at-root .swiper-slide & {
@@ -89,6 +90,13 @@
   .movies__item {
     margin-bottom: 0;
     flex-basis: calc(100% / 2 - $gap);
+    transition: $transition-duration $transition-animation;
+    transition-property: transform, filter;
+
+    &:hover {
+      transform: scale(1.02);
+      filter: saturate(1.5);
+    }
   }
 
   .thumb {

@@ -3,6 +3,7 @@
   min-height: 230px;
 
   background-size: cover;
+  background-color: $bg-header;
   background-image: url(../images/header_home/home_mob@1x.webp);
 
   @include mq(retina) {
