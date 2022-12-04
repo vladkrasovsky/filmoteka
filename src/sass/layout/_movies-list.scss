@@ -4,27 +4,6 @@
   background-color: #ffffff;
 }
 
-//.container {
-//  padding-left: 20px;
-//  padding-right: 20px;
-//  margin-left: auto;
-//  margin-right: auto;
-//
-//  @media screen and (min-width: 320px) {
-//    width: 320px;
-//  }
-//
-//  @media screen and (min-width: 768px) {
-//    width: 768px;
-//    padding-left: 32px;
-//    padding-right: 32px;
-//  }
-//
-//  @media screen and (min-width: 1280px) {
-//    width: 1280px;
-//  }
-//}
-
 .dark .movies {
   background-color: #272d34;
 }
@@ -70,7 +49,14 @@
 .movies__image {
   width: 100%;
   height: 100%;
+  border-radius: 5px;
+  user-select: none;
+  background-color: $bg-footer;
   object-fit: cover;
+
+  @at-root .swiper-slide & {
+    object-fit: initial;
+  }
 }
 
 .movies__title {
@@ -116,6 +102,13 @@
   .movies__item {
     margin-bottom: 0;
     flex-basis: calc(100% / 2 - $gap);
+    transition: $transition-duration $transition-animation;
+    transition-property: transform, filter;
+
+    &:hover {
+      transform: scale(1.02);
+      filter: saturate(1.5);
+    }
   }
 
   .thumb {

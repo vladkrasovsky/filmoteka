@@ -32,4 +32,10 @@ export class Themoviedb {
     const {data} = await axios.get(urlAXIOS, this.#params);
     return data;
   }
+
+  async getUkrainianMovies() {
+    const urlAXIOS = `discover/movie?with_original_language=uk`;
+    const { data } = await axios.get(urlAXIOS, this.#params);
+    return data;
+  }
 }
