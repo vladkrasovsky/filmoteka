@@ -49,7 +49,9 @@ export function markupMovieModal(movie) {
       <ul class="movie-modal__discription">
         <li class="movie-modal-discription__vote--text left">Vote / Votes</li>
         <li class="movie-modal-discription__vote--value right">
-          <span class="movie-modal__discription--accent">${vote_average}</span> / ${vote_count}
+          <span class="movie-modal__discription--accent">${vote_average.toFixed(
+            1
+          )}</span> / ${vote_count}
         </li>
         <li class="movie-modal-discription__popularity--text left">
           Popularity

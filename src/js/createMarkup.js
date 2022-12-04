@@ -3,7 +3,15 @@ import { themoviedb as config } from './constants';
 
 export function createMarkup(movies) {
   return movies.reduce((acc, movie) => {
-    const { poster_path, original_title, genre_ids, release_date, id } = movie;
+    const {
+      poster_path,
+      original_title,
+      genre_ids,
+      release_date,
+      id,
+      vote_average,
+      overview,
+    } = movie;
 
     const releaseYear = release_date ? release_date?.slice(0, 4) : 'No date';
 
@@ -25,7 +33,14 @@ export function createMarkup(movies) {
               alt='${original_title}'
               onerror="this.src='${config.POSTER_PLACEHOLDER_URL}'"
               loading="lazy"
-            >     
+            >   
+            <div class="movies__overlay">
+              <p class="movies__overlay-vote">Vote: ${vote_average.toFixed(
+                1
+              )}</p>
+              <p class="movies__overlay-about">Overview:</p>
+              <p class="movies__overlay-txt">${overview}</p>
+            </div>  
           </div>
           <p class='movies__title'>${original_title}</p>
 

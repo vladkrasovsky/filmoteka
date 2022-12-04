@@ -5,7 +5,6 @@ import * as modalMovie from './modalMovie';
 import * as modalTeam from './modalTeam';
 import * as footerYear from './footerYear';
 import * as scrollToTop from './button';
-import { onHoverCard } from './hoverEffectsCard';
 
 //
 // Variables
