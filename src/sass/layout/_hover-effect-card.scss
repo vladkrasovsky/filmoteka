@@ -1,0 +1,53 @@
+
+    @include mq(desktop) {
+
+    .thumb {
+            position: relative;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+    .movies__overlay {
+        width: 395px;
+        position: absolute;
+        top: 0%;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        // align-items: center;
+        flex-direction: column;
+        background-color: $color-accent;
+        border-radius: 5px;
+        visibility: hidden;
+        opacity: 0;  
+        transition: opacity $transition-duration $transition-animation,
+        visibility $transition-duration $transition-animation;
+    
+
+        .movies__item:hover & {
+            visibility: visible;
+            opacity: 0.8;
+            // transition: opacity $transition-duration $transition-animation,
+            //         visibility $transition-duration $transition-animation;
+        }
+    }
+}
+
+.movies__overlay-txt,
+.movies__overlay-about,
+.movies__overlay-vote {
+    color: $color-text;
+}
+
+.movies__overlay-txt {
+    @include font($fs: 16px, $lh: 1.18, $fw: 500, $ls: null);
+}
+
+.movies__overlay-about {
+    @include font($fs: 20px, $lh: 1.2, $fw: 500, $ls: null);
+}
+
+.movies__overlay-vote {
+    @include font($fs: 20px, $lh: 1.2, $fw: 500, $ls: null);
+    margin-bottom: 8px;
+}
