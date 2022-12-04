@@ -36,10 +36,13 @@
 .header {
   &__container {
     padding-top: 30px;
-    width: 280px;
+    max-width: 500px;
     min-height: 138px;
 
     @include mq(tablet) {
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 100%;
       width: 704px;
     }
 
