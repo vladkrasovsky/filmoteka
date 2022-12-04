@@ -83,8 +83,6 @@ const team = [
     name: 'Serhii',
     role: 'Developer',
     github_path: 'https://github.com/Padalka-Sergey',
-    linkedin_path:
-      'https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3Bq4G3GuGJRZW2ctPIEiYzhg%3D%3D',
   },
   {
     photo: `${devDenysObj}`,
@@ -112,21 +110,38 @@ const team = [
 
 const markupCard = team
   .map(({ photo, name, role, github_path, linkedin_path }) => {
+    const githubLink = github_path
+      ? `<a href="${github_path}" class="link_social" title="GitHub" target="_blank" rel="noopener noreferrer nofollow">
+          <img
+            class="github_icon"
+            src="${github_iconRef}"
+            alt="github icon"
+            width="20"
+          />
+        </a>`
+      : '';
+
+    const linkedInLink = linkedin_path
+      ? `<a href="${linkedin_path}" class="link_social" title="LinkedIn" target="_blank" rel="noopener noreferrer nofollow">
+          <img
+            class="linkedin_icon"
+            src="${linkedin_iconRef}"
+            alt="linkedin icon"
+            width="20"
+          />
+        </a>`
+      : '';
+
     return `<li class="team_card">
-             
-               <img loading="lazy" src="${photo}" alt="${name}" class="team_photo">
-               <div class = "team_info">
-              <p class="team_name">${name}</p>
-              <a href="${github_path}" class="link_social">
-               <img class="github_icon" src="${github_iconRef}" alt="github icon" width="30" />
-              </a>
-              <a href="${linkedin_path}">
-               <img class="linkedin_icon" src="${linkedin_iconRef}" alt="linkedin icon" width="30" />
-              </a>
-               </div>
-              <p class="team_role">${role}</p>
-              
-              </li>`;
+      <img loading="lazy" src="${photo}" alt="${name}" class="team_photo" />
+      <div class="team_info">
+        <p class="team_name">${name}</p>
+        ${githubLink}
+        ${linkedInLink}
+      </div>
+      <p class="team_role">${role}</p>
+    </li>
+  `;
   })
   .join('');
 
@@ -143,7 +158,7 @@ const modal = basicLightbox.create(markupTeamModal, {
   },
   onClose: () => {
     bodyRef.classList.remove('no-scroll');
-  }
+  },
 });
 
 function openModal(e) {

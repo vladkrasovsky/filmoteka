@@ -175,6 +175,10 @@
   color: #8c8c8c;
 }
 
+.dark .left {
+  color: #f8bfbf;
+}
+
 .right {
   width: 65%;
 
@@ -247,4 +251,34 @@
   @media screen and (min-width: 1280px) {
     width: 136px;
   }
+}
+
+.dark .movie-modal {
+  background-color: #7b1525;
+}
+
+.dark .movie-modal__title {
+  color: #fff;
+}
+
+.dark .right {
+  color: #fff;
+}
+
+.dark .movie-modal-about__title {
+  color: #fff;
+}
+
+.dark .movie-modal-about__text {
+  color: #fff;
+}
+
+.dark .movie-modal__btn-close {
+  background-color: #272d34b3;
+  color: #fff;
+}
+
+.dark .movie-modal__btn-close:hover {
+  background-color: #fff;
+  color: #ff6b08;
 }
