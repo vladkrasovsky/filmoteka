@@ -1,12 +1,16 @@
 import { Themoviedb } from './API/Themoviedb';
+import {
+  markupOverlayCardNoVote,
+  markupOverlayCard,
+} from './createMarkupHoverEffect';
 
 const movieAboutText = new Themoviedb();
 let getEl = selector => document.querySelector(selector);
 const movieList = getEl('.movies__list');
 
-let overlayText = null;
+export let overlayText = null;
 let movieOverlay = null;
-let overlayVote = null;
+export let overlayVote = null;
 
 movieList.addEventListener('mouseover', onHoverCard);
 movieList.addEventListener('mouseout', onNotHoverCard);
@@ -53,18 +57,18 @@ function onNotHoverCard(e) {
   movieOverlay.remove();
 }
 
-function markupOverlayCardNoVote(overlayText) {
-  return `<div class="movies__overlay">
-            <p class="movies__overlay-vote">Vote: no ratings</p>
-            <p class="movies__overlay-about">About:</p>
-            <p class="movies__overlay-txt">${overlayText}</p>
-          </div>`;
-}
+// function markupOverlayCardNoVote(overlayText) {
+//   return `<div class="movies__overlay">
+//             <p class="movies__overlay-vote">Vote: no ratings</p>
+//             <p class="movies__overlay-about">About:</p>
+//             <p class="movies__overlay-txt">${overlayText}</p>
+//           </div>`;
+// }
 
-function markupOverlayCard(overlayVote, overlayText) {
-  return `<div class="movies__overlay">
-            <p class="movies__overlay-vote">Vote: ${overlayVote}</p>
-            <p class="movies__overlay-about">About:</p>
-            <p class="movies__overlay-txt">${overlayText}</p>
-          </div>`;
-}
+// function markupOverlayCard(overlayVote, overlayText) {
+//   return `<div class="movies__overlay">
+//             <p class="movies__overlay-vote">Vote: ${overlayVote}</p>
+//             <p class="movies__overlay-about">About:</p>
+//             <p class="movies__overlay-txt">${overlayText}</p>
+//           </div>`;
+// }
