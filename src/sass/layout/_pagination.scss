@@ -33,6 +33,13 @@
 }
 
 .dark .tui-pagination .tui-page-btn:hover {
-  background: #3B434B;
+  background: #3b434b;
 }
 
+.dark .tui-pagination .tui-ico-ellip,
+.dark .tui-pagination .tui-ico-first,
+.dark .tui-pagination .tui-ico-last,
+.dark .tui-pagination .tui-ico-next,
+.dark .tui-pagination .tui-ico-prev {
+  filter: brightness(5);
+}
