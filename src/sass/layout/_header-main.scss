@@ -224,12 +224,12 @@
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
+  user-select: none;
 
   background-color: #2061c9;
 }
 
 .marquee span {
-  
   color: #dada16;
 
   font-size: 20px;
