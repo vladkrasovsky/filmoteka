@@ -3,8 +3,8 @@ import icons from '../images/icons.svg';
 
 export function getTrailer(key) {
   const youtubeTrailer = basicLightbox.create(`
-    <iframe src="https://www.youtube.com/embed/${key}"  frameborder="0"
-     allow="gyroscope; autoplay;"  allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/${key}?rel=0&showinfo=0&autoplay=1"  frameborder="0"
+     allow="gyroscope;"  allowfullscreen></iframe>
 `);
   return youtubeTrailer;
 }
