@@ -43,3 +43,10 @@
 .dark .tui-pagination .tui-ico-prev {
   filter: brightness(5);
 }
+
+@include mq(mobile-only) {
+  .tui-pagination .tui-first, .tui-pagination .tui-last,
+  .tui-pagination .tui-next-is-ellip, .tui-pagination .tui-prev-is-ellip {
+    display: none !important;
+  }
+}
