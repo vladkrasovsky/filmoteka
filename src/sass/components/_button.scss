@@ -1,16 +1,28 @@
 #top {
   position: fixed;
-  right: 0;
+  right: 5px;
   bottom: 50px;
-  background: #ff6b08;
-  transition: 250ms all;
-  cursor: pointer;
+  
+  padding: 8px 10px;
+  
+  color: $color-text-lighter;
+  background: $color-accent;
+  border: $color-accent;
   border-radius: 20%;
-  padding: 2px 3px;
-  border: #ff6b08;
-  // opacity: 0.5;
+
+  transition: $transition-duration $transition-animation;
+  transition-property: transform, opacity;
+  
+  cursor: pointer;
+  opacity: 0.85;
+
+  &:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+
   @media screen and (min-width: 768px) {
-    right: 10px;
+    right: 20px;
     bottom: 20px;
     padding: 10px 12px;
   }
