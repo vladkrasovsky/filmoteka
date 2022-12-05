@@ -78,7 +78,8 @@
 
     color: $color-text;
     background-color: $color-text-lighter;
-    transition: color $transition-animation $transition-duration;
+    transition: $transition-animation $transition-duration;
+    transition-property: color, background-color;
     user-select: none;
 
     &:hover,
@@ -92,6 +93,7 @@
     fill: currentColor;
     display: block;
     pointer-events: none;
+    transform: scale(2);
   }
 }
 
@@ -231,14 +233,16 @@
   font-weight: 500;
   line-height: calc(16 / 12);
 
+  background-color: #fff;
   border: 1px solid $color-text;
   border-radius: 5px;
 
   cursor: pointer;
   transition: all $transition-animation $transition-duration;
 
-  &:hover,
-  &:focus {
+  &:hover:not(.btn-watched),
+  &:focus:not(.btn-queue),
+  &.btn-watched:not(:hover):not(:focus) {
     background-color: $color-accent;
     border-color: $color-accent;
     color: $color-text-lighter;
